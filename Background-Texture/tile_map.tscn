@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cr8irn5xqg6fm"]
+[gd_scene load_steps=17 format=3 uid="uid://cr8irn5xqg6fm"]
 
 [ext_resource type="Texture2D" uid="uid://c2sp5f2gt6vfx" path="res://sheet.png" id="1_u48il"]
 [ext_resource type="Texture2D" uid="uid://chwb42sjn3bcn" path="res://Background-Texture/grass_tileset_16x16/grass_tileset_16x16.png" id="2_g0yj0"]
@@ -2431,6 +2431,9 @@ size = Vector2(1395, 42)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2swx"]
 size = Vector2(34.5, 800)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax0nr"]
+size = Vector2(39.25, 16.5)
+
 [node name="TileMap" type="TileMap"]
 position = Vector2(0, 1)
 tile_set = SubResource("TileSet_p1yew")
@@ -2447,20 +2450,41 @@ layer_4/name = "Pyramid_3"
 layer_4/tile_data = PackedInt32Array(1376311, 1048580, 61, 1441847, 1048580, 62, 1507383, 1048580, 63, 1376312, 1114116, 61, 1441848, 1114116, 62, 1507384, 1114116, 63, 852036, 2097156, 28, 917572, 2883588, 28, 983108, 2883588, 29, 1048644, 2883588, 30, 1114180, 2883588, 31, 1179716, 917508, 63, 852037, 2162692, 28, 917573, 2949124, 28, 983109, 2949124, 29, 1048645, 2949124, 30, 1114181, 2949124, 31, 1179717, 983044, 63, 786493, 2883588, 32, 852029, 2883588, 33, 786494, 2949124, 32, 852030, 2949124, 33, 655421, 3014660, 30, 720957, 3014660, 31, 655422, 3080196, 30, 720958, 3080196, 31, 983101, 3014660, 30, 1048637, 3014660, 31, 983102, 3080196, 30, 1048638, 3080196, 31, 917574, 3801092, 29, 983110, 3801092, 30, 917575, 3866628, 29, 917576, 3932164, 29, 917577, 3997700, 29, 983113, 3997700, 30, 852038, 2228228, 28, 852039, 2293764, 28, 852040, 2359300, 28, 852041, 2424836, 28, 1048646, 3801092, 31, 1114182, 3801092, 32, 1179718, 3801092, 33, 458820, 2097156, 28, 458821, 2162692, 28, 458822, 2228228, 28, 458823, 2293764, 28, 458824, 2359300, 28, 458825, 2424836, 28)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="WorldBorder_Up" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(571, -24)
 scale = Vector2(1.01115, 1)
 shape = SubResource("RectangleShape2D_8eblh")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="WorldBorder_LSide" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(-19, 307)
 shape = SubResource("RectangleShape2D_vs5b8")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="WorldBorder_Down" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(575.5, 674)
 shape = SubResource("RectangleShape2D_pipi2")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="WorldBorder_RSide" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(1168, 324)
 shape = SubResource("RectangleShape2D_y2swx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-1, -1)
+polygon = PackedVector2Array(880, 364, 880, 381, 911, 383, 912, 544, 1199, 546, 1199, 400, 984, 399, 984, 303, 1007, 303, 1008, 285, 977, 284, 898, 365)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-1, -1)
+polygon = PackedVector2Array(882, 299, 881, 283, 911, 283, 911, 191, 975, 127, 1175, 128, 1175, 138, 985, 140, 984, 202, 1006, 203, 1005, 221, 977, 222, 896, 302, 880, 303)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1107.38, 294)
+shape = SubResource("RectangleShape2D_ax0nr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1108, 198)
+shape = SubResource("RectangleShape2D_ax0nr")
