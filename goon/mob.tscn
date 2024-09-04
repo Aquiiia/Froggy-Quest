@@ -16,6 +16,7 @@ shape = SubResource("RectangleShape2D_bqc3n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 6)
+scale = Vector2(2, 2)
 texture = ExtResource("1_70hgw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
