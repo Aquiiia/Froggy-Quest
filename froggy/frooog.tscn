@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://froggy/froggy.gd" id="1_70d4k"]
 [ext_resource type="Texture2D" uid="uid://bpwpgqijwtqmk" path="res://img/frog_hair.png" id="2_oyuy2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_io6r2"]
-size = Vector2(58, 44)
+[sub_resource type="CircleShape2D" id="CircleShape2D_cfud4"]
+radius = 20.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(9, 23)
 script = ExtResource("1_70d4k")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(73, 65)
@@ -16,6 +16,6 @@ scale = Vector2(1, 0.979)
 texture = ExtResource("2_oyuy2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(73.5, 69)
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_io6r2")
+position = Vector2(72, 68)
+rotation = 3.14159
+shape = SubResource("CircleShape2D_cfud4")
