@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ykk83t8bp70n"]
+
+[ext_resource type="Texture2D" uid="uid://dfj2eyul0agqv" path="res://froggy/icon.svg" id="1_2cp37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqc3n"]
+size = Vector2(128, 130)
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_bqc3n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(0, 6)
+texture = ExtResource("1_2cp37")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
