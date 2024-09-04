@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="1_eu774"]
 [ext_resource type="PackedScene" uid="uid://ykk83t8bp70n" path="res://goon/mob.tscn" id="2_rrwvo"]
 [ext_resource type="PackedScene" uid="uid://cr8irn5xqg6fm" path="res://Background-Texture/tile_map.tscn" id="4_x7tbt"]
-[ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud.tscn" id="5_4ae3p"]
+[ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="5_4ae3p"]
 
 [sub_resource type="Curve2D" id="Curve2D_7njrl"]
 _data = {
