@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Froggy Quest"
-run/main_scene="res://tile_map.tscn"
+run/main_scene="res://Background-Texture/tile_map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://froggy/icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [rendering]
 
