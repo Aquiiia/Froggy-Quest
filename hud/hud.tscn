@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkudxqac61kr1"]
+[gd_scene load_steps=8 format=3 uid="uid://bkudxqac61kr1"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_6b2kp"]
-[ext_resource type="Texture2D" uid="uid://bf0cwyga3vflb" path="res://hud/start_btn.png" id="2_4mmmj"]
+[ext_resource type="Texture2D" uid="uid://deolx66o4yim8" path="res://hud/start_btn.png" id="2_4mmmj"]
+[ext_resource type="Texture2D" uid="uid://bxxk5dbt1um6y" path="res://hud/paused.png" id="3_eoxyi"]
+[ext_resource type="Texture2D" uid="uid://d3iyj4okskqpp" path="res://hud/resume_btn.png" id="3_hpq0v"]
+[ext_resource type="Texture2D" uid="uid://cm48x6ipu2kan" path="res://hud/settings_btn.png" id="4_o3f3n"]
+[ext_resource type="Texture2D" uid="uid://pqq6sf2hb5j3" path="res://hud/leaveGame_btn.png" id="5_f8a3g"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bquyk"]
-size = Vector2(128, 56)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qkd60"]
-size = Vector2(128, 56)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yaj7u"]
+texture = ExtResource("3_eoxyi")
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_6b2kp")
@@ -61,10 +62,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -224.0
-offset_top = -238.0
-offset_right = 224.0
-offset_bottom = 238.0
+offset_left = -229.0
+offset_top = -259.0
+offset_right = 219.0
+offset_bottom = 217.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -75,11 +76,12 @@ anchor_left = 0.5
 anchor_top = 0.282
 anchor_right = 0.5
 anchor_bottom = 0.282
-offset_left = -64.0
-offset_top = -28.232
-offset_right = 64.0
-offset_bottom = 27.768
-texture_normal = SubResource("PlaceholderTexture2D_bquyk")
+offset_left = -94.0
+offset_top = 9.76799
+offset_right = 85.0
+offset_bottom = 76.768
+texture_normal = ExtResource("3_hpq0v")
+stretch_mode = 0
 
 [node name="SettingsButton" type="TextureButton" parent="PausePanel"]
 layout_mode = 1
@@ -88,13 +90,14 @@ anchor_left = 0.5
 anchor_top = 0.55
 anchor_right = 0.5
 anchor_bottom = 0.55
-offset_left = -64.0
-offset_top = -27.8
-offset_right = 64.0
-offset_bottom = 28.2
+offset_left = -94.0
+offset_top = -10.8
+offset_right = 87.0
+offset_bottom = 56.2
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = SubResource("PlaceholderTexture2D_qkd60")
+texture_normal = ExtResource("4_o3f3n")
+stretch_mode = 0
 
 [node name="LeaveGameButton" type="TextureButton" parent="PausePanel"]
 layout_mode = 1
@@ -103,25 +106,29 @@ anchor_left = 0.5
 anchor_top = 0.819
 anchor_right = 0.5
 anchor_bottom = 0.819
-offset_left = -64.0
-offset_top = -27.844
-offset_right = 64.0
-offset_bottom = 28.156
+offset_left = -96.0
+offset_top = -32.844
+offset_right = 85.0
+offset_bottom = 34.156
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = SubResource("PlaceholderTexture2D_qkd60")
+texture_normal = ExtResource("5_f8a3g")
+stretch_mode = 0
 
 [node name="TestPauseLabel" type="Label" parent="PausePanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -114.0
+offset_top = 10.0
+offset_right = 105.0
+offset_bottom = 98.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
-text = "Paused"
+theme_override_styles/normal = SubResource("StyleBoxTexture_yaj7u")
+text = "
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
