@@ -47,4 +47,4 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_leave_game_button_pressed() -> void:
 	game_over.emit()
-	$PausePanel.hide()
+	toggle_pause()
