@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh570jd0sq7wp"]
+[gd_scene load_steps=8 format=3 uid="uid://bh570jd0sq7wp"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_3hk87"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="1_eu774"]
 [ext_resource type="PackedScene" uid="uid://ykk83t8bp70n" path="res://goon/mob.tscn" id="2_rrwvo"]
 [ext_resource type="PackedScene" uid="uid://cr8irn5xqg6fm" path="res://Background-Texture/tile_map.tscn" id="4_x7tbt"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="5_4ae3p"]
+[ext_resource type="PackedScene" uid="uid://brvnvycksii0g" path="res://TopFrog/TopFrog.tscn" id="6_2r7b2"]
 
 [sub_resource type="Curve2D" id="Curve2D_7njrl"]
 _data = {
@@ -41,6 +42,9 @@ position = Vector2(0, 0.996905)
 
 [node name="HUD" parent="." instance=ExtResource("5_4ae3p")]
 process_mode = 3
+
+[node name="TopFrog" parent="." instance=ExtResource("6_2r7b2")]
+position = Vector2(340, 208)
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
