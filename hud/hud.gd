@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal start_game
+signal game_over
 
 func show_message(text):
 	$Message.text = text
@@ -14,8 +15,6 @@ func show_game_over():
 	
 	$Message.text = "Main menu"
 	$Message.show()
-	# Make a one-shot timer and wait for it to finish.
-	await get_tree().create_timer(1.0).timeout
 	$StartButton.show()
 
 func update_score(score):
@@ -28,3 +27,24 @@ func _on_start_button_pressed() -> void:
 
 func _on_message_timer_timeout() -> void:
 	$Message.hide()
+
+@export var pause_action = "pause"
+
+func toggle_pause():
+	var tree = get_tree()
+	# If paused then unpause or unpause if paused
+	tree.paused = !tree.paused
+	if tree.paused:
+		$PausePanel.show()
+	else:
+		$PausePanel.hide()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(pause_action):
+		toggle_pause()
+
+
+func _on_leave_game_button_pressed() -> void:
+	game_over.emit()
+	$PausePanel.hide()

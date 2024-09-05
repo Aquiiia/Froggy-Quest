@@ -40,8 +40,10 @@ curve = SubResource("Curve2D_7njrl")
 position = Vector2(0, 0.996905)
 
 [node name="HUD" parent="." instance=ExtResource("5_4ae3p")]
+process_mode = 3
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="game_over" from="HUD" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
