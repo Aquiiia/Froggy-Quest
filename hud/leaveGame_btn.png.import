@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deolx66o4yim8"
-path="res://.godot/imported/start_btn.png-bce1543a244237e839f2b2e28881e91b.ctex"
+uid="uid://pqq6sf2hb5j3"
+path="res://.godot/imported/leaveGame_btn.png-f28755c9dd17e78e7d187bc43152f671.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hud/start_btn.png"
-dest_files=["res://.godot/imported/start_btn.png-bce1543a244237e839f2b2e28881e91b.ctex"]
+source_file="res://hud/leaveGame_btn.png"
+dest_files=["res://.godot/imported/leaveGame_btn.png-f28755c9dd17e78e7d187bc43152f671.ctex"]
 
 [params]
 
