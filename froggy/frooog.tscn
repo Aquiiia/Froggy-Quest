@@ -4,18 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://bpwpgqijwtqmk" path="res://img/frog_hair.png" id="2_oyuy2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfud4"]
-radius = 20.0
+radius = 15.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(9, 23)
 script = ExtResource("1_70d4k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(73, 65)
-scale = Vector2(1, 0.979)
+position = Vector2(65, 56.836)
+scale = Vector2(0.75, 0.723875)
 texture = ExtResource("2_oyuy2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(72, 68)
+visibility_layer = 0
+position = Vector2(64, 59)
 rotation = 3.14159
 shape = SubResource("CircleShape2D_cfud4")
