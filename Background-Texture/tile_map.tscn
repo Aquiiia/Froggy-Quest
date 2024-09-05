@@ -2473,18 +2473,18 @@ visible = false
 position = Vector2(1168, 324)
 shape = SubResource("RectangleShape2D_y2swx")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="DownSide" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-1, -1)
 polygon = PackedVector2Array(880, 364, 880, 381, 911, 383, 912, 544, 1199, 546, 1199, 400, 984, 399, 984, 303, 1007, 303, 1008, 285, 977, 284, 898, 365)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-1, -1)
-polygon = PackedVector2Array(882, 299, 881, 283, 911, 283, 911, 191, 975, 127, 1175, 128, 1175, 138, 985, 140, 984, 202, 1006, 203, 1005, 221, 977, 222, 896, 302, 880, 303)
+[node name="UpperSide" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(881, 292, 881, 283, 911, 271, 911, 191, 975, 127, 1175, 128, 1177, 131, 982, 130, 984, 202, 1006, 202, 1006, 207, 977, 207, 894, 290, 881, 298)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Pillars2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1107.38, 294)
 shape = SubResource("RectangleShape2D_ax0nr")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Pillars" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1108, 198)
 shape = SubResource("RectangleShape2D_ax0nr")
