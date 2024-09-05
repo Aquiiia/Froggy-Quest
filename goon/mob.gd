@@ -1,13 +1,19 @@
-extends RigidBody2D
+extends CharacterBody2D
+
+@export var speed = 100
+var froggy_chase = false
+var froggy = null
+
+func _physics_process(_delta):
+	if froggy_chase:
+		position += (froggy.position - position) / speed
+		move_and_collide(Vector2(0,0))
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	froggy = body
+	froggy_chase = true
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	var mob_types = $Sprite2D
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_detection_area_body_exited(_body: Node2D) -> void:
+	froggy = null
+	froggy_chase = false

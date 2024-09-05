@@ -6,8 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_cfud4"]
 radius = 15.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Froggy" type="CharacterBody2D"]
 position = Vector2(9, 23)
+collision_layer = 3
 script = ExtResource("1_70d4k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

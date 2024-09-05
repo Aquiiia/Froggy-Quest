@@ -1,18 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://ykk83t8bp70n"]
+[gd_scene load_steps=5 format=3 uid="uid://ykk83t8bp70n"]
 
+[ext_resource type="Script" path="res://goon/mob.gd" id="1_3qwca"]
 [ext_resource type="Texture2D" uid="uid://c4qscm6isxhl6" path="res://img/swamp_fly.png" id="1_70hgw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqc3n"]
-size = Vector2(22, 19)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iq4bc"]
+radius = 8.0
+height = 32.0
 
-[node name="Mob" type="RigidBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_7u4oh"]
+radius = 89.0056
+
+[node name="Mob" type="CharacterBody2D"]
 collision_mask = 0
-gravity_scale = 0.0
-metadata/_edit_group_ = true
+script = ExtResource("1_3qwca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 3.5)
-shape = SubResource("RectangleShape2D_bqc3n")
+position = Vector2(-6, 6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iq4bc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 6)
@@ -20,3 +25,14 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_70hgw")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_7u4oh")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
