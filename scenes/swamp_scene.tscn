@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqdyi86qyvc2x"]
+[gd_scene load_steps=4 format=3 uid="uid://cqdyi86qyvc2x"]
 
 [ext_resource type="PackedScene" uid="uid://diw0s5wqs6mx6" path="res://swamp/Swamp.tscn" id="1_40ctb"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="2_oddit"]
+[ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="3_r7mcr"]
 
 [node name="Swamp_scene" type="Node"]
 
@@ -10,3 +11,5 @@ position = Vector2(-4, 0)
 
 [node name="Froggy" parent="." instance=ExtResource("2_oddit")]
 position = Vector2(-18, 275)
+
+[node name="HUD" parent="." instance=ExtResource("3_r7mcr")]

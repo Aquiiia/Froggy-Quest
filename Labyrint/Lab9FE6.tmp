@@ -5482,7 +5482,6 @@ navigation_layer_0/layers = 0
 sources/0 = SubResource("TileSetAtlasSource_io0rs")
 
 [node name="Labyrinth" type="Node2D"]
-position = Vector2(-1, 6)
 script = ExtResource("1_e06ld")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -5520,8 +5519,7 @@ tile_set = SubResource("TileSet_ba0lr")
 position = Vector2(4, 359)
 
 [node name="TopFrog" parent="." instance=ExtResource("2_4ajss")]
-position = Vector2(64, 341)
-speed = null
+position = Vector2(140, 335)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false

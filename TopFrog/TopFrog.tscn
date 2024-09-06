@@ -2,23 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://cr8063d17sve" path="res://TopFrog/light.png" id="1_8pw6x"]
 [ext_resource type="Script" path="res://TopFrog/top_frog.gd" id="1_jy3um"]
-[ext_resource type="Texture2D" uid="uid://dqsliyq85odkn" path="res://img/frog_topdown.png" id="2_fra3l"]
+[ext_resource type="Texture2D" uid="uid://dvi15m3j753pa" path="res://img/frog_topdown.png" id="3_2mbh5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i4478"]
-radius = 13.0
+radius = 13.1529
 
 [node name="TopFrog" type="CharacterBody2D"]
+up_direction = Vector2(0, 1)
 script = ExtResource("1_jy3um")
+speed = null
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0, 0.664926, 0.666807, 1)
 texture = ExtResource("1_8pw6x")
 
 [node name="Pic" type="Sprite2D" parent="PointLight2D"]
-texture = ExtResource("2_fra3l")
+texture = ExtResource("3_2mbh5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_i4478")
 
 [node name="ZoomedCamera" type="Camera2D" parent="."]
