@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://brvnvycksii0g"]
+[gd_scene load_steps=5 format=3 uid="uid://brvnvycksii0g"]
 
-[ext_resource type="Texture2D" uid="uid://bpxgxseelehlu" path="res://TopFrog/light.png" id="1_8pw6x"]
+[ext_resource type="Texture2D" uid="uid://cr8063d17sve" path="res://TopFrog/light.png" id="1_8pw6x"]
+[ext_resource type="Script" path="res://TopFrog/top_frog.gd" id="1_jy3um"]
 [ext_resource type="Texture2D" uid="uid://dqsliyq85odkn" path="res://img/frog_topdown.png" id="2_fra3l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i4478"]
 radius = 13.0
 
 [node name="TopFrog" type="CharacterBody2D"]
+script = ExtResource("1_jy3um")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0, 0.664926, 0.666807, 1)
@@ -18,3 +20,6 @@ texture = ExtResource("2_fra3l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_i4478")
+
+[node name="ZoomedCamera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)

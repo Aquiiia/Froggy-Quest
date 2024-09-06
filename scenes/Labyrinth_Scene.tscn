@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bidywpss5pvv1"]
+
+[ext_resource type="PackedScene" uid="uid://g8crlq2xj4ob" path="res://Labyrint/Labyrinth.tscn" id="1_0qf17"]
+
+[node name="Node" type="Node"]
+
+[node name="Labyrinth" parent="." instance=ExtResource("1_0qf17")]
