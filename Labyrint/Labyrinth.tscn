@@ -5517,7 +5517,7 @@ tile_set = SubResource("TileSet_ba0lr")
 position = Vector2(4, 362)
 
 [node name="TopFrog" parent="." instance=ExtResource("2_4ajss")]
-position = Vector2(109, 333)
+position = Vector2(8, 360)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
