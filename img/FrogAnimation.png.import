@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjfggh1ibqied"
-path="res://.godot/imported/frog_topdown.png-9256b2b720690a92a13be3a87e58b44d.ctex"
+uid="uid://dmlfogxbp2rqe"
+path="res://.godot/imported/FrogAnimation.png-94b2da7484b38afc7d95f05a4e29bf5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/frog_topdown.png"
-dest_files=["res://.godot/imported/frog_topdown.png-9256b2b720690a92a13be3a87e58b44d.ctex"]
+source_file="res://img/FrogAnimation.png"
+dest_files=["res://.godot/imported/FrogAnimation.png-94b2da7484b38afc7d95f05a4e29bf5a.ctex"]
 
 [params]
 
