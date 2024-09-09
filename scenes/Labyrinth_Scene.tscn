@@ -1,7 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bidywpss5pvv1"]
+[gd_scene load_steps=4 format=3 uid="uid://bidywpss5pvv1"]
 
 [ext_resource type="PackedScene" uid="uid://g8crlq2xj4ob" path="res://Labyrint/Labyrinth.tscn" id="1_0qf17"]
+[ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="2_2fs4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw3ie"]
+size = Vector2(20, 72)
 
 [node name="Labyrint" type="Node"]
 
 [node name="Labyrinth" parent="." instance=ExtResource("1_0qf17")]
+
+[node name="SceneTrigger" parent="." instance=ExtResource("2_2fs4q")]
+position = Vector2(1202, 332)
+connected_scene = "final_scene"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+position = Vector2(-3, 1)
+shape = SubResource("RectangleShape2D_bw3ie")

@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqdyi86qyvc2x"]
+[gd_scene load_steps=6 format=3 uid="uid://cqdyi86qyvc2x"]
 
 [ext_resource type="PackedScene" uid="uid://diw0s5wqs6mx6" path="res://swamp/Swamp.tscn" id="1_40ctb"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="2_oddit"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="3_r7mcr"]
+[ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="4_4n1kk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qk30f"]
+size = Vector2(34.75, 103.5)
 
 [node name="Swamp_scene" type="Node"]
 
@@ -10,6 +14,15 @@
 position = Vector2(-4, 0)
 
 [node name="Froggy" parent="." instance=ExtResource("2_oddit")]
-position = Vector2(-18, 275)
+position = Vector2(-38, 257)
 
 [node name="HUD" parent="." instance=ExtResource("3_r7mcr")]
+
+[node name="SceneTrigger2" parent="." instance=ExtResource("4_4n1kk")]
+position = Vector2(1229, 357)
+connected_scene = "jungle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger2"]
+z_index = 1
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_qk30f")
