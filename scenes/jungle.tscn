@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh570jd0sq7wp"]
+[gd_scene load_steps=9 format=3 uid="uid://pmuda4x518dp"]
 
 [ext_resource type="Script" path="res://scenes/jungle.gd" id="1_21bwr"]
-[ext_resource type="PackedScene" uid="uid://ykk83t8bp70n" path="res://goon/mob.tscn" id="2_jagi1"]
 [ext_resource type="PackedScene" uid="uid://cr8irn5xqg6fm" path="res://Background-Texture/tile_map.tscn" id="3_k3u35"]
+[ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="4_rfqff"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="4_w8rim"]
-[ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="5_7kkme"]
-[ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="6_lcrmi"]
+[ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="5_jkgxt"]
+[ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="6_etm7i"]
 
 [sub_resource type="Curve2D" id="Curve2D_7njrl"]
 _data = {
@@ -18,13 +18,11 @@ size = Vector2(20, 56)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_21bwr")
-mob_scene = ExtResource("2_jagi1")
 
 [node name="TileMap" parent="." instance=ExtResource("3_k3u35")]
 
 [node name="Froggy" parent="." instance=ExtResource("4_w8rim")]
-position = Vector2(-37, 257)
-collision_layer = 1
+collision_layer = 3
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -37,9 +35,9 @@ one_shot = true
 
 [node name="StartPos" type="Marker2D" parent="."]
 visibility_layer = 3
-position = Vector2(9, 324)
+position = Vector2(450, 240)
 
-[node name="MobSpawner" parent="." instance=ExtResource("4_xqdbo")]
+[node name="MobSpawner" parent="." instance=ExtResource("4_rfqff")]
 
 [node name="MobPath" type="Path2D" parent="MobSpawner"]
 curve = SubResource("Curve2D_7njrl")
@@ -47,10 +45,10 @@ curve = SubResource("Curve2D_7njrl")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawner/MobPath"]
 position = Vector2(0, 0.996905)
 
-[node name="HUD" parent="." instance=ExtResource("5_7kkme")]
+[node name="HUD" parent="." instance=ExtResource("5_jkgxt")]
 process_mode = 3
 
-[node name="SceneTrigger" parent="." instance=ExtResource("6_lcrmi")]
+[node name="SceneTrigger" parent="." instance=ExtResource("6_etm7i")]
 position = Vector2(1193, 259)
 connected_scene = "Labyrinth_Scene"
 
