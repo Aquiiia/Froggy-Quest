@@ -5521,7 +5521,6 @@ position = Vector2(4, 359)
 
 [node name="TopFrog" parent="." instance=ExtResource("2_4ajss")]
 position = Vector2(64, 341)
-speed = null
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
