@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bh570jd0sq7wp"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_7grnc"]
-[ext_resource type="PackedScene" uid="uid://ykk83t8bp70n" path="res://goon/mob.tscn" id="2_e0dnc"]
 [ext_resource type="PackedScene" uid="uid://cr8irn5xqg6fm" path="res://Background-Texture/tile_map.tscn" id="3_efnau"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="4_qemyw"]
+[ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="4_xqdbo"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="5_e053u"]
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="6_vdxb0"]
 
@@ -18,12 +18,11 @@ size = Vector2(20, 56)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7grnc")
-mob_scene = ExtResource("2_e0dnc")
 
 [node name="TileMap" parent="." instance=ExtResource("3_efnau")]
 
 [node name="Froggy" parent="." instance=ExtResource("4_qemyw")]
-collision_layer = 1
+collision_layer = 3
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -38,10 +37,12 @@ one_shot = true
 visibility_layer = 3
 position = Vector2(450, 240)
 
-[node name="MobPath" type="Path2D" parent="."]
+[node name="MobSpawner" parent="." instance=ExtResource("4_xqdbo")]
+
+[node name="MobPath" type="Path2D" parent="MobSpawner"]
 curve = SubResource("Curve2D_7njrl")
 
-[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawner/MobPath"]
 position = Vector2(0, 0.996905)
 
 [node name="HUD" parent="." instance=ExtResource("5_e053u")]
@@ -55,7 +56,7 @@ connected_scene = "Labyrinth_Scene"
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_y8b3f")
 
-[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="MobTimer" to="MobSpawner" method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="game_over" from="HUD" to="." method="game_over"]

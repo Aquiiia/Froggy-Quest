@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfxxvghw7ddpf"]
+
+[ext_resource type="Script" path="res://goon/mob_spawner.gd" id="1_52w3k"]
+[ext_resource type="PackedScene" uid="uid://ykk83t8bp70n" path="res://goon/mob.tscn" id="2_42s08"]
+
+[node name="MobSpawner" type="Node"]
+script = ExtResource("1_52w3k")
+mob_scene = ExtResource("2_42s08")
