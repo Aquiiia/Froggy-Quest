@@ -56,6 +56,7 @@ connected_scene = "Labyrinth_Scene"
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_y8b3f")
 
+[connection signal="froggy_killed" from="Froggy" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="MobSpawner" method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

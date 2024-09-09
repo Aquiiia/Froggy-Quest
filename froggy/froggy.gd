@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal froggy_killed
+
+@export var hp = 10
 @export var speed = 150
 #spit ability
 #@export var spit : PackedScene
@@ -56,3 +59,12 @@ func Spit():
 			print("Spit created at: ", spit_instance.position)
 	else:
 		print("Spit scene is not assigned!")
+
+
+func _on_hurt_box_entered(body: Node2D) -> void:
+	if hp > 0:
+		hp -= 1
+		print(hp)
+	else:
+		froggy_killed.emit()
+	
