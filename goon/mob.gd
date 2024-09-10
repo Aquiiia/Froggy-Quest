@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var speed = 100
+@export var health = 2
+
 var froggy_chase = false
 var froggy = null
 
@@ -17,3 +19,12 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 func _on_detection_area_body_exited(_body: Node2D) -> void:
 	froggy = null
 	froggy_chase = false
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		die()
+
+func die() -> void:
+	# Add logic to remove the enemy, play an animation, etc.
+	queue_free()
