@@ -39,7 +39,9 @@ func toggle_pause():
 	else:
 		$CanvasLayer/PausePanel.hide()
 
+func _restart_game() -> void:
+	get_tree().change_scene_to_file("res://scenes/start_scene.tscn")
 
 func _on_leave_game_button_pressed() -> void:
 	toggle_pause()
-	get_tree().change_scene_to_file("res://scenes/start_scene.tscn")
+	_restart_game()

@@ -12,9 +12,9 @@ texture = ExtResource("3_eoxyi")
 [node name="HUD" type="Node"]
 script = ExtResource("1_6b2kp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CL" type="CanvasLayer" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+[node name="ScoreLabel" type="Label" parent="CL"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -27,11 +27,11 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MessageTimer" type="Timer" parent="CanvasLayer"]
+[node name="MessageTimer" type="Timer" parent="CL"]
 wait_time = 2.0
 one_shot = true
 
-[node name="PausePanel" type="Panel" parent="CanvasLayer"]
+[node name="PausePanel" type="Panel" parent="CL"]
 visible = false
 self_modulate = Color(0.221902, 0.221902, 0.221902, 1)
 top_level = true
@@ -47,7 +47,7 @@ offset_bottom = 238.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResumeButton" type="TextureButton" parent="CanvasLayer/PausePanel"]
+[node name="ResumeButton" type="TextureButton" parent="CL/PausePanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -61,7 +61,7 @@ offset_bottom = 76.768
 texture_normal = ExtResource("3_hpq0v")
 stretch_mode = 0
 
-[node name="SettingsButton" type="TextureButton" parent="CanvasLayer/PausePanel"]
+[node name="SettingsButton" type="TextureButton" parent="CL/PausePanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -77,7 +77,7 @@ grow_vertical = 2
 texture_normal = ExtResource("4_o3f3n")
 stretch_mode = 0
 
-[node name="LeaveGameButton" type="TextureButton" parent="CanvasLayer/PausePanel"]
+[node name="LeaveGameButton" type="TextureButton" parent="CL/PausePanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -93,7 +93,7 @@ grow_vertical = 2
 texture_normal = ExtResource("5_f8a3g")
 stretch_mode = 0
 
-[node name="TestPauseLabel" type="Label" parent="CanvasLayer/PausePanel"]
+[node name="TestPauseLabel" type="Label" parent="CL/PausePanel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -125,6 +125,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[connection signal="timeout" from="CanvasLayer/MessageTimer" to="." method="_on_message_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/PausePanel/ResumeButton" to="." method="toggle_pause"]
-[connection signal="pressed" from="CanvasLayer/PausePanel/LeaveGameButton" to="." method="_on_leave_game_button_pressed"]
+[connection signal="timeout" from="CL/MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="CL/PausePanel/ResumeButton" to="." method="toggle_pause"]
+[connection signal="pressed" from="CL/PausePanel/LeaveGameButton" to="." method="_on_leave_game_button_pressed"]

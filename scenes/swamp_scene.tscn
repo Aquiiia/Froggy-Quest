@@ -1,13 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqdyi86qyvc2x"]
+[gd_scene load_steps=9 format=3 uid="uid://cqdyi86qyvc2x"]
 
 [ext_resource type="PackedScene" uid="uid://diw0s5wqs6mx6" path="res://swamp/Swamp.tscn" id="1_40ctb"]
 [ext_resource type="Script" path="res://scenes/jungle.gd" id="1_f8mcv"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="2_oddit"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="3_r7mcr"]
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="4_4n1kk"]
+[ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="6_8jujq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qk30f"]
 size = Vector2(34.75, 103.5)
+
+[sub_resource type="Curve2D" id="Curve2D_6dm8x"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0.996905, 0, 0, 0, 0, 1152, 0.996905, 0, 0, 0, 0, 1152, 647.994, 0, 0, 0, 0, 0, 647.994, 0, 0, 0, 0, 0, 0.996905)
+}
+point_count = 5
 
 [node name="Swamp_scene" type="Node"]
 script = ExtResource("1_f8mcv")
@@ -29,3 +36,13 @@ connected_scene = "jungle"
 z_index = 1
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_qk30f")
+
+[node name="MobSpawner" parent="." instance=ExtResource("6_8jujq")]
+
+[node name="MobPath" type="Path2D" parent="MobSpawner"]
+curve = SubResource("Curve2D_6dm8x")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawner/MobPath"]
+position = Vector2(0, 0.996905)
+
+[connection signal="froggy_killed" from="Froggy" to="HUD" method="_restart_game"]
