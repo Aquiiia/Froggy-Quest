@@ -19,6 +19,7 @@ position = Vector2(-4, 0)
 position = Vector2(-38, 257)
 
 [node name="HUD" parent="." instance=ExtResource("3_r7mcr")]
+process_mode = 3
 
 [node name="SceneTrigger2" parent="." instance=ExtResource("4_4n1kk")]
 position = Vector2(1229, 357)

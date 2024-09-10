@@ -11,7 +11,6 @@ func game_over() -> void:
 
 func new_game():
 	score = 0
-	$Froggy.start($StartPos.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
 

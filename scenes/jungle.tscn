@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/jungle.gd" id="1_21bwr"]
 [ext_resource type="PackedScene" uid="uid://cr8irn5xqg6fm" path="res://Background-Texture/tile_map.tscn" id="3_k3u35"]
-[ext_resource type="PackedScene" path="res://goon/mob_spawner.tscn" id="4_rfqff"]
+[ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="4_rfqff"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="4_w8rim"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="5_jkgxt"]
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="6_etm7i"]
@@ -22,7 +22,8 @@ script = ExtResource("1_21bwr")
 [node name="TileMap" parent="." instance=ExtResource("3_k3u35")]
 
 [node name="Froggy" parent="." instance=ExtResource("4_w8rim")]
-collision_layer = 3
+collision_layer = 7
+collision_mask = 32773
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -32,10 +33,6 @@ wait_time = 0.5
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-
-[node name="StartPos" type="Marker2D" parent="."]
-visibility_layer = 3
-position = Vector2(450, 240)
 
 [node name="MobSpawner" parent="." instance=ExtResource("4_rfqff")]
 
