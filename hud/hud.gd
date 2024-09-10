@@ -2,28 +2,14 @@ extends Node
 
 
 signal game_over
-
-
-func show_message(text):
-	$Message.text = text
-	$Message.show()
-	$MessageTimer.start()
+@export var pause_action = "pause"
 
 
 func show_game_over():
-	#await $MessageTimer.timeout
-	$Message.show()
+	$CL/Message.show()
+	await get_tree().create_timer(1.5).timeout
+	_restart_game()
 
-
-func update_score(score):
-	$ScoreLabel.text = str(score)
-
-
-func _on_message_timer_timeout() -> void:
-	$Message.hide()
-
-
-@export var pause_action = "pause"
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(pause_action):
@@ -35,12 +21,14 @@ func toggle_pause():
 	# If paused then unpause or unpause if paused
 	tree.paused = !tree.paused
 	if tree.paused:
-		$CanvasLayer/PausePanel.show()
+		$CL/PausePanel.show()
 	else:
-		$CanvasLayer/PausePanel.hide()
+		$CL/PausePanel.hide()
+
 
 func _restart_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/start_scene.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/start_scene.tscn")
+
 
 func _on_leave_game_button_pressed() -> void:
 	toggle_pause()

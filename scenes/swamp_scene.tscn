@@ -45,4 +45,5 @@ curve = SubResource("Curve2D_6dm8x")
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawner/MobPath"]
 position = Vector2(0, 0.996905)
 
-[connection signal="froggy_killed" from="Froggy" to="HUD" method="_restart_game"]
+[connection signal="froggy_killed" from="Froggy" to="." method="game_over"]
+[connection signal="game_over" from="HUD" to="." method="game_over"]
