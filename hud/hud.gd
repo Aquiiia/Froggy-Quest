@@ -9,11 +9,7 @@ func show_message(text):
 	$MessageTimer.start()
 
 func show_game_over():
-	show_message("Game Over")
-	# Wait until the MessageTimer has counted down.
-	await $MessageTimer.timeout
-	
-	$Message.text = "Main menu"
+	#await $MessageTimer.timeout
 	$Message.show()
 	$StartButton.show()
 

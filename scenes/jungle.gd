@@ -14,13 +14,14 @@ func new_game():
 	$Froggy.start($StartPos.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")
 
 func _on_score_timer_timeout():
 	score += 1
 	$HUD.update_score(score)
 
 func _on_start_timer_timeout():
+	$HUD/Message.hide()
+	$HUD/StartButton.hide()
 	$MobTimer.start()
 	$ScoreTimer.start()
 
