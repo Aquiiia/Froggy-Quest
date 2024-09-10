@@ -1,3 +1,75 @@
-[gd_scene format=3 uid="uid://c0q0m0icsj87f"]
+[gd_scene load_steps=4 format=3 uid="uid://c0q0m0icsj87f"]
+
+[ext_resource type="Script" path="res://levelup.gd" id="1_4g40v"]
+[ext_resource type="Texture2D" uid="uid://bb7wn8x8wtaw4" path="res://LevelUpCard.png" id="2_dhi50"]
+[ext_resource type="Texture2D" uid="uid://bwq5hoggojgid" path="res://upgrade_bar.png" id="2_su338"]
 
 [node name="Levelup" type="Node2D"]
+script = ExtResource("1_4g40v")
+
+[node name="spit_speedbar" type="Sprite2D" parent="."]
+position = Vector2(424, 218)
+scale = Vector2(3.65152, 3.9)
+texture = ExtResource("2_su338")
+
+[node name="spit_dmgbar" type="Sprite2D" parent="."]
+position = Vector2(424, 282)
+scale = Vector2(3.56818, 3.95)
+texture = ExtResource("2_su338")
+
+[node name="tongue_speedbar" type="Sprite2D" parent="."]
+position = Vector2(424, 386)
+scale = Vector2(3.62121, 4.1)
+texture = ExtResource("2_su338")
+
+[node name="tongue_dmgbar" type="Sprite2D" parent="."]
+position = Vector2(425, 449)
+scale = Vector2(3.52273, 4.3)
+texture = ExtResource("2_su338")
+
+[node name="Card" type="Sprite2D" parent="."]
+position = Vector2(587, 323)
+scale = Vector2(3.50488, 3.36328)
+texture = ExtResource("2_dhi50")
+
+[node name="spit_speed" type="Button" parent="."]
+self_modulate = Color(0.227451, 0.227451, 0.227451, 0)
+offset_left = 601.0
+offset_top = 201.0
+offset_right = 628.0
+offset_bottom = 233.0
+action_mode = 0
+
+[node name="spit_dmg" type="Button" parent="."]
+self_modulate = Color(0.227451, 0.227451, 0.227451, 0)
+offset_left = 602.0
+offset_top = 265.0
+offset_right = 628.0
+offset_bottom = 296.0
+action_mode = 0
+
+[node name="tongue_speed" type="Button" parent="."]
+self_modulate = Color(0.227451, 0.227451, 0.227451, 0)
+offset_left = 602.0
+offset_top = 366.0
+offset_right = 629.0
+offset_bottom = 400.0
+action_mode = 0
+
+[node name="tongue_dmg" type="Button" parent="."]
+self_modulate = Color(0.227451, 0.227451, 0.227451, 0)
+offset_left = 602.0
+offset_top = 435.0
+offset_right = 628.0
+offset_bottom = 468.0
+action_mode = 0
+
+[node name="exit_button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="spit_speed" to="." method="_on_spit_speed_pressed"]
+[connection signal="pressed" from="spit_dmg" to="." method="_on_spit_dmg_pressed"]
+[connection signal="pressed" from="tongue_speed" to="." method="_on_tongue_speed_pressed"]
+[connection signal="pressed" from="tongue_dmg" to="." method="_on_tongue_dmg_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
