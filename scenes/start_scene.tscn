@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=4 uid="uid://eu3s3g2if3f8"]
+[gd_scene load_steps=18 format=4 uid="uid://eu3s3g2if3f8"]
 
 [ext_resource type="Texture2D" uid="uid://ofekqmfic3dj" path="res://SceneTrigger/sheet.png" id="1_6q67g"]
 [ext_resource type="Texture2D" uid="uid://dx2nhglv47dvs" path="res://scenes/background.png" id="1_7cfom"]
 [ext_resource type="Script" path="res://scenes/start_scene.gd" id="1_smhrx"]
-[ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="2_glqqh"]
 [ext_resource type="Texture2D" uid="uid://chwb42sjn3bcn" path="res://Background-Texture/grass_tileset_16x16/grass_tileset_16x16.png" id="2_mklhx"]
 [ext_resource type="Script" path="res://scenes/frog_start.gd" id="5_e7u0k"]
 [ext_resource type="Texture2D" uid="uid://cjqpx27j5eqdu" path="res://main_frogjump.png" id="6_2c1dq"]
+[ext_resource type="Texture2D" uid="uid://bbsvb7p8jfutb" path="res://hud/main_menu.png" id="7_me5lq"]
+[ext_resource type="Texture2D" uid="uid://deolx66o4yim8" path="res://hud/start_btn.png" id="8_mb427"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pkogv"]
 texture = ExtResource("1_6q67g")
@@ -286,6 +287,9 @@ _data = {
 "jump": SubResource("Animation_jbgq8")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j3gn3"]
+texture = ExtResource("7_me5lq")
+
 [node name="Start_scene" type="Node"]
 script = ExtResource("1_smhrx")
 
@@ -301,8 +305,6 @@ tile_set = SubResource("TileSet_frf5d")
 [node name="Grass" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD//wwAAAACAAYAAAAAAAwAAAACAAYAAAABAAwAAAACAAYAAAACAAwAAAACAAYAAAADAAwAAAACAAYAAAAEAAwAAAACAAYAAAAFAAwAAAACAAYAAAAGAAwAAAACAAYAAAAHAAwAAAACAAYAAAAIAAwAAAACAAYAAAAJAAwAAAACAAYAAAAKAAwAAAACAAYAAAALAAwAAAACAAYAAAAMAAwAAAACAAYAAAANAAwAAAACAAYAAAAOAAwAAAACAAYAAAAPAAwAAAACAAYAAAAQAAwAAAACAAYAAAARAAwAAAACAAYAAAASAAwAAAACAAYAAAATAAwAAAACAAYAAAAUAAwAAAACAAYAAAAVAAwAAAACAAYAAAAWAAwAAAACAAYAAAAXAAwAAAACAAYAAAAYAAwAAAACAAYAAAAZAAwAAAACAAYAAAAaAAwAAAACAAYAAAAbAAwAAAACAAYAAAAcAAwAAAACAAYAAAAdAAwAAAACAAYAAAAeAAwAAAACAAYAAAAfAAwAAAACAAYAAAAgAAwAAAACAAYAAAAhAAwAAAACAAYAAAAiAAwAAAACAAYAAAAjAAwAAAACAAYAAAAkAAwAAAACAAYAAAAlAAwAAAACAAYAAAAmAAwAAAACAAYAAAAnAAwAAAACAAYAAAAoAAwAAAACAAYAAAApAAwAAAACAAYAAAAqAAwAAAACAAYAAAArAAwAAAACAAYAAAAsAAwAAAACAAYAAAAtAAwAAAACAAYAAAAuAAwAAAACAAYAAAAvAAwAAAACAAYAAAAwAAwAAAACAAYAAAAxAAwAAAACAAYAAAAyAAwAAAACAAYAAAAzAAwAAAACAAYAAAA0AAwAAAACAAYAAAA1AAwAAAACAAYAAAA2AAwAAAACAAYAAAA3AAwAAAACAAYAAAA4AAwAAAACAAYAAAA5AAwAAAACAAYAAAA6AAwAAAACAAYAAAA7AAwAAAACAAYAAAA8AAwAAAACAAYAAAA9AAwAAAACAAYAAAA+AAwAAAACAAYAAAA/AAwAAAACAAYAAABAAAwAAAACAAYAAABBAAwAAAACAAYAAABCAAwAAAACAAYAAABDAAwAAAACAAYAAABEAAwAAAACAAYAAABFAAwAAAACAAYAAABGAAwAAAACAAYAAABHAAwAAAACAAYAAABIAAwAAAACAAYAAAA=")
 tile_set = SubResource("TileSet_htaj0")
-
-[node name="HUD" parent="." instance=ExtResource("2_glqqh")]
 
 [node name="Frog" type="CharacterBody2D" parent="."]
 position = Vector2(304, 170)
@@ -332,5 +334,21 @@ position = Vector2(-43, 172)
 wait_time = 22.0
 autostart = true
 
+[node name="Main_menu" type="Label" parent="."]
+offset_left = 324.0
+offset_top = 245.0
+offset_right = 830.0
+offset_bottom = 337.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_j3gn3")
+
+[node name="StartButton" type="TextureButton" parent="."]
+offset_left = 442.0
+offset_top = 410.0
+offset_right = 685.0
+offset_bottom = 514.0
+texture_normal = ExtResource("8_mb427")
+stretch_mode = 0
+
 [connection signal="animation_finished" from="Frog/AnimationPlayer" to="Frog" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="ReturnTimer" to="." method="_on_return_timer_timeout"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
