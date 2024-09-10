@@ -1,15 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkudxqac61kr1"]
+[gd_scene load_steps=7 format=3 uid="uid://bkudxqac61kr1"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_6b2kp"]
-[ext_resource type="Texture2D" uid="uid://deolx66o4yim8" path="res://hud/start_btn.png" id="2_4mmmj"]
-[ext_resource type="Texture2D" uid="uid://bbsvb7p8jfutb" path="res://hud/main_menu.png" id="2_e06af"]
 [ext_resource type="Texture2D" uid="uid://bxxk5dbt1um6y" path="res://hud/paused.png" id="3_eoxyi"]
 [ext_resource type="Texture2D" uid="uid://d3iyj4okskqpp" path="res://hud/resume_btn.png" id="3_hpq0v"]
 [ext_resource type="Texture2D" uid="uid://cm48x6ipu2kan" path="res://hud/settings_btn.png" id="4_o3f3n"]
 [ext_resource type="Texture2D" uid="uid://pqq6sf2hb5j3" path="res://hud/leaveGame_btn.png" id="5_f8a3g"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fnsow"]
-texture = ExtResource("2_e06af")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yaj7u"]
 texture = ExtResource("3_eoxyi")
@@ -18,7 +13,6 @@ texture = ExtResource("3_eoxyi")
 script = ExtResource("1_6b2kp")
 
 [node name="ScoreLabel" type="Label" parent="."]
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -30,39 +24,6 @@ theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Message" type="Label" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 324.0
-offset_top = -77.0
-offset_right = -321.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = SubResource("StyleBoxTexture_fnsow")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="StartButton" type="TextureButton" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -118.0
-offset_top = -233.0
-offset_right = 94.0
-offset_bottom = -135.0
-grow_horizontal = 2
-grow_vertical = 0
-action_mode = 0
-texture_normal = ExtResource("2_4mmmj")
-stretch_mode = 0
 
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -145,7 +106,6 @@ text = "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
 [connection signal="pressed" from="PausePanel/ResumeButton" to="." method="toggle_pause"]
 [connection signal="pressed" from="PausePanel/LeaveGameButton" to="." method="_on_leave_game_button_pressed"]

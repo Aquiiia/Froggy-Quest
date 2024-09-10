@@ -61,7 +61,7 @@ func Spit():
 		print("Spit scene is not assigned!")
 
 
-func _on_hurt_box_entered(body: Node2D) -> void:
+func _on_hurt_box_entered(_body: Node2D) -> void:
 	if hp > 0:
 		hp -= 1
 		print(hp)

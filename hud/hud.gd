@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-signal start_game
+
 signal game_over
 
 func show_message(text):
@@ -15,12 +15,6 @@ func show_game_over():
 
 func update_score(score):
 	$ScoreLabel.text = str(score)
-
-func _on_start_button_pressed() -> void:
-	
-	$StartButton.hide()
-	$ScoreLabel.show()
-	start_game.emit()
 
 
 func _on_message_timer_timeout() -> void:
@@ -44,5 +38,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_leave_game_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/start_scene.tscn")
 	game_over.emit()
 	toggle_pause()

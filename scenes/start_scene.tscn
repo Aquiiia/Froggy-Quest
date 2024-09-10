@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/start_scene.gd" id="1_smhrx"]
 [ext_resource type="Texture2D" uid="uid://chwb42sjn3bcn" path="res://Background-Texture/grass_tileset_16x16/grass_tileset_16x16.png" id="2_mklhx"]
 [ext_resource type="Script" path="res://scenes/frog_start.gd" id="5_e7u0k"]
-[ext_resource type="Texture2D" uid="uid://cjqpx27j5eqdu" path="res://main_frogjump.png" id="6_2c1dq"]
+[ext_resource type="Texture2D" uid="uid://bria2pyygjfan" path="res://main_frogjump.png" id="6_2c1dq"]
 [ext_resource type="Texture2D" uid="uid://bbsvb7p8jfutb" path="res://hud/main_menu.png" id="7_me5lq"]
 [ext_resource type="Texture2D" uid="uid://deolx66o4yim8" path="res://hud/start_btn.png" id="8_mb427"]
 
