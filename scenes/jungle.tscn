@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/jungle.gd" id="1_21bwr"]
 [ext_resource type="PackedScene" uid="uid://cr8irn5xqg6fm" path="res://Background-Texture/tile_map.tscn" id="3_k3u35"]
-[ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="4_rfqff"]
+[ext_resource type="PackedScene" path="res://goon/mob_spawner.tscn" id="4_rfqff"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="4_w8rim"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="5_jkgxt"]
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="6_etm7i"]
