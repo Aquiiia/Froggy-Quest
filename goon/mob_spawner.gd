@@ -2,7 +2,21 @@ extends Node
 
 @export var mob_scene: PackedScene
 
+# Edit the waves values by changing the array values:
+@export var mobs_per_wave: Array[int] = [2, 3, 4, 6, 8] 
+var current_wave: int = 0
+var mobs_left: int = 0
 
+func _ready() -> void:
+	start_wave(current_wave)
+
+func start_wave(wave: int) -> void:
+	if wave >= mobs_per_wave.size(): # Checks if all waves are complete
+		return
+	mobs_left = mobs_per_wave[wave]  # Set how many mobs need to be killed
+	for i in range(mobs_left):
+		print("Spawning mob", i + 1)
+		_mob_creator()
 
 func _mob_creator():
 	# Create a new instance of the Mob scene.
@@ -22,8 +36,17 @@ func _mob_creator():
 	mob.rotation = direction
 	
 	# Spawn the mob by adding it to the Main scene.
-	add_child(mob)
+	call_deferred("add_child", mob)
 	mob.add_to_group("enemies")
+	mob.connect("mob_died", Callable(self, "_on_mob_died"))
+
+
+func _on_mob_died() -> void:
+	mobs_left -= 1
+	if mobs_left <= 0:
+		print("Wave completed!")
+		current_wave += 1
+		start_wave(current_wave)
 
 func _remove_mobs():
 	for mob in get_tree().get_nodes_in_group("enemies"):

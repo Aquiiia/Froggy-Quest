@@ -11,7 +11,7 @@ signal froggy_killed
 
 #Variables spit
 var spit_speed = 400
-var spit_cooldown = 1.5
+var spit_cooldown = 0.1
 var last_spit_time = 100
 
 func get_input():

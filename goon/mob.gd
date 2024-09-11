@@ -29,5 +29,5 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	# Add logic to remove the enemy, play an animation, etc.
-	emit_signal("mob_died")
+	mob_died.emit()
 	queue_free()
