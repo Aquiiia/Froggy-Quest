@@ -4,14 +4,14 @@ signal froggy_killed
 
 @export var hp = 10
 @export var speed = 150
+@export var xp: int = 0
 #spit ability
 #@export var spit : PackedScene
 @export var spit : PackedScene = preload("res://froggy/Attacks/spit.tscn")
 
-
 #Variables spit
 var spit_speed = 400
-var spit_cooldown = 1.5
+var spit_cooldown = 0.1
 var last_spit_time = 100
 
 func get_input():
@@ -22,9 +22,11 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
+	print(xp)
 	# Update the timer (spit)
 	last_spit_time += delta
 	#print("Time since last spit: ", last_spit_time)
+	
 	
 	if Input.is_action_just_pressed("spit"):
 		Spit()
@@ -67,4 +69,12 @@ func _on_hurt_box_entered(_body: Node2D) -> void:
 		print(hp)
 	else:
 		froggy_killed.emit()
+	
+func increase_xp(amount: int) -> void:
+	xp += amount
+	print("Frog XP increased to: ", xp)
+	
+#func level_Up():
+	
+	
 	

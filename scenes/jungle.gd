@@ -7,5 +7,7 @@ func game_over() -> void:
 
 
 func _ready():
-	$Froggy.position = $StartPos.position
+	var player = preload("res://froggy/frooog.tscn").instantiate()
+	add_child(player)
+	player.position = $StartPos.position
 	pass

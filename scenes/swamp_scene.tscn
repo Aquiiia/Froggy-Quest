@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqdyi86qyvc2x"]
+[gd_scene load_steps=8 format=3 uid="uid://cqdyi86qyvc2x"]
 
 [ext_resource type="PackedScene" uid="uid://diw0s5wqs6mx6" path="res://swamp/Swamp.tscn" id="1_40ctb"]
 [ext_resource type="Script" path="res://scenes/jungle.gd" id="1_f8mcv"]
-[ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="2_oddit"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="3_r7mcr"]
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="4_4n1kk"]
 [ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="6_8jujq"]
@@ -21,9 +20,6 @@ script = ExtResource("1_f8mcv")
 
 [node name="Swamp" parent="." instance=ExtResource("1_40ctb")]
 position = Vector2(-4, 0)
-
-[node name="Froggy" parent="." instance=ExtResource("2_oddit")]
-position = Vector2(-49, 265)
 
 [node name="HUD" parent="." instance=ExtResource("3_r7mcr")]
 process_mode = 3
@@ -47,5 +43,3 @@ position = Vector2(0, 0.996905)
 
 [node name="StartPos" type="Marker2D" parent="."]
 position = Vector2(13, 324)
-
-[connection signal="froggy_killed" from="Froggy" to="." method="game_over"]

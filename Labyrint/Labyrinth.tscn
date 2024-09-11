@@ -8097,7 +8097,6 @@ tile_set = SubResource("TileSet_ba0lr")
 position = Vector2(139, 326)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="StartPos" type="Marker2D" parent="."]
