@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal mob_died
 
 @export var speed = 100
 @export var health = 2
@@ -28,4 +29,5 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	# Add logic to remove the enemy, play an animation, etc.
+	emit_signal("mob_died")
 	queue_free()
