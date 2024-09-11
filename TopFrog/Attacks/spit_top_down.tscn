@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://pk2yybccmbwu"]
+
+[ext_resource type="Texture2D" uid="uid://d0jsl4nsfdfg1" path="res://img/spit_topdown.png" id="1_a4awl"]
+[ext_resource type="Script" path="res://TopFrog/Attacks/spit_top_down.gd" id="1_k3157"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_udp5f"]
+radius = 3.0
+
+[node name="SpitTopDown" type="Area2D"]
+script = ExtResource("1_k3157")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -5.96046e-08)
+scale = Vector2(0.4375, 0.421875)
+texture = ExtResource("1_a4awl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_udp5f")

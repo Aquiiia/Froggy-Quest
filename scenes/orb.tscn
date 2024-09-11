@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbkegp4etcpw1"]
+
+[ext_resource type="Texture2D" uid="uid://bx1uhy28qrb8d" path="res://swamp/xp_ore.png" id="1_658hs"]
+[ext_resource type="Script" path="res://scenes/orb.gd" id="1_hklho"]
+[ext_resource type="Script" path="res://scenes/orb_area.gd" id="3_cu81w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nr8lv"]
+radius = 8.0
+
+[node name="Orb" type="Node2D"]
+script = ExtResource("1_hklho")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_cu81w")
+
+[node name="xp_orb" type="Sprite2D" parent="Area2D"]
+scale = Vector2(1.6875, 1.625)
+texture = ExtResource("1_658hs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_nr8lv")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
