@@ -49,4 +49,3 @@ position = Vector2(0, 0.996905)
 position = Vector2(13, 324)
 
 [connection signal="froggy_killed" from="Froggy" to="." method="game_over"]
-[connection signal="game_over" from="HUD" to="." method="game_over"]

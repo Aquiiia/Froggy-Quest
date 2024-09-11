@@ -1,7 +1,6 @@
 extends Node
 
 
-signal game_over
 @export var pause_action = "pause"
 
 
