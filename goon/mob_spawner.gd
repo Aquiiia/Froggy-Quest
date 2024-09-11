@@ -2,8 +2,7 @@ extends Node
 
 @export var mob_scene: PackedScene
 
-
-func _on_mob_timer_timeout():
+func _mob_creator():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
 	
