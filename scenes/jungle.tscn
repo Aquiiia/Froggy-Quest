@@ -22,7 +22,7 @@ script = ExtResource("1_21bwr")
 [node name="TileMap" parent="." instance=ExtResource("3_k3u35")]
 
 [node name="Froggy" parent="." instance=ExtResource("4_w8rim")]
-position = Vector2(-8, 265)
+position = Vector2(-51, 271)
 collision_layer = 7
 collision_mask = 32773
 
@@ -44,6 +44,9 @@ connected_scene = "Labyrinth_Scene"
 [node name="Door" type="CollisionShape2D" parent="SceneTrigger"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_y8b3f")
+
+[node name="StartPos" type="Marker2D" parent="."]
+position = Vector2(7, 329)
 
 [connection signal="froggy_killed" from="Froggy" to="." method="game_over"]
 [connection signal="game_over" from="HUD" to="." method="game_over"]

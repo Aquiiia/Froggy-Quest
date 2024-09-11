@@ -7,4 +7,5 @@ func game_over() -> void:
 
 
 func _ready():
+	$Froggy.position = $StartPos.position
 	pass

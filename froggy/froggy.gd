@@ -44,7 +44,7 @@ func Spit():
 		
 		if Spit != null:
 			print("spit3")
-			var mouth_offset = Vector2(52, 52)
+			var mouth_offset = Vector2(0, 0)
 			var spit_position = position + mouth_offset
 			print("Character Position: ", position)
 			print("Mouth Offset: ", mouth_offset)

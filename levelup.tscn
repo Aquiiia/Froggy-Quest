@@ -65,8 +65,11 @@ offset_bottom = 468.0
 action_mode = 0
 
 [node name="exit_button" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 506.0
+offset_top = 504.0
+offset_right = 661.0
+offset_bottom = 572.0
 
 [connection signal="pressed" from="spit_speed" to="." method="_on_spit_speed_pressed"]
 [connection signal="pressed" from="spit_dmg" to="." method="_on_spit_dmg_pressed"]
