@@ -23,7 +23,7 @@ script = ExtResource("1_f8mcv")
 position = Vector2(-4, 0)
 
 [node name="Froggy" parent="." instance=ExtResource("2_oddit")]
-position = Vector2(-38, 257)
+position = Vector2(-49, 265)
 
 [node name="HUD" parent="." instance=ExtResource("3_r7mcr")]
 process_mode = 3
@@ -44,5 +44,8 @@ curve = SubResource("Curve2D_6dm8x")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobSpawner/MobPath"]
 position = Vector2(0, 0.996905)
+
+[node name="StartPos" type="Marker2D" parent="."]
+position = Vector2(13, 324)
 
 [connection signal="froggy_killed" from="Froggy" to="." method="game_over"]
