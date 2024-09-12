@@ -12,6 +12,7 @@ signal froggy_killed
 @export var tongue_range = 100
 
 @onready var sprite = $Sprite2D
+@onready var animsprite = $AnimatedSprite2D
 
 
 #Variables spit
@@ -94,6 +95,14 @@ func tongue_attack():
 		
 		get_parent().add_child(tongue_instance)
 		
+		animsprite.play("tongue_attack")
+		
+		await get_tree().create_timer(tongue_range).timeout
+		
+		tongue_instance.queue_free()
+		is_tongue_attacking = false
+		animsprite.play("idle")
+		
 		# Animate the tongue extending and retracting
 		#var animation = AnimationPlayer.new()
 		#add_child(animation)
@@ -102,7 +111,7 @@ func tongue_attack():
 		#var anim = Animation.new()
 		#anim.length = tongue_range / tongue_speed
 		#
-		## Animate the tongue moving out
+		#Animate the tongue moving out
 		#anim.track_insert_key(tongue_instance.position, 0, tongue_position)
 		#anim.track_insert_key(tongue_instance.position, anim.length, tongue_position + direction * tongue_range)
 		#
