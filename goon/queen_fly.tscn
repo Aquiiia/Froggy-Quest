@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=3 uid="uid://dft8wekitw4aw"]
+
+[ext_resource type="Texture2D" uid="uid://bxpqiqwagokus" path="res://img/queen_fly_turned.png" id="1_wf2gd"]
+[ext_resource type="Texture2D" uid="uid://6t34w8r433gr" path="res://img/spit.png" id="2_is28g"]
+[ext_resource type="Script" path="res://goon/enemy_ai/state_machine.gd" id="3_bbvds"]
+[ext_resource type="Script" path="res://goon/state.gd" id="4_vvdfg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_356wp"]
+radius = 30.3785
+height = 149.997
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a06cx"]
+radius = 328.098
+
+[node name="QueenFly" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_wf2gd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_356wp")
+
+[node name="AcidSpit" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AcidSpit"]
+position = Vector2(-88, 16)
+scale = Vector2(3.4375, 2.84375)
+texture = ExtResource("2_is28g")
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -87.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+value = 100.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ProgressBar"]
+self_modulate = Color(0.95, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.287
+anchor_right = 0.5
+anchor_bottom = -0.287
+offset_left = -120.0
+offset_top = -40.031
+offset_right = 111.0
+offset_bottom = 26.969
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "Queen Fly"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "The Queen has been killed"
+
+[node name="debug" type="Label" parent="."]
+offset_left = -56.0
+offset_top = -128.0
+offset_right = 55.0
+offset_bottom = -54.0
+theme_override_font_sizes/font_size = 24
+text = "debug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerDection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDection"]
+shape = SubResource("CircleShape2D_a06cx")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("3_bbvds")
+
+[node name="Idle" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_vvdfg")
+
+[node name="Follow" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_vvdfg")
+
+[node name="Spit" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_vvdfg")
+
+[node name="Charge" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_vvdfg")
+
+[node name="Death" type="Node2D" parent="StateMachine"]
+script = ExtResource("4_vvdfg")

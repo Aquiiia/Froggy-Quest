@@ -2,8 +2,9 @@ extends Node
 
 @export var mob_scene: PackedScene
 
-# Edit the waves values by changing the array values:
-@export var mobs_per_wave: Array[int] = [2, 3, 4, 6, 8] 
+# Edit the amount of mobs per wave values by changing the array values or
+# add more values at the end of the array for more waves
+@export var mobs_per_wave: Array[int] = [2, 3, 4, 6, 8]
 var current_wave: int = 0
 var mobs_left: int = 0
 
