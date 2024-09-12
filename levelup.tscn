@@ -8,32 +8,44 @@
 script = ExtResource("1_4g40v")
 
 [node name="spit_speedbar" type="Sprite2D" parent="."]
+visibility_layer = 524289
+z_index = 5
 position = Vector2(424, 218)
 scale = Vector2(3.65152, 3.9)
 texture = ExtResource("2_su338")
 
 [node name="spit_dmgbar" type="Sprite2D" parent="."]
+visibility_layer = 524289
+z_index = 5
 position = Vector2(424, 282)
 scale = Vector2(3.56818, 3.95)
 texture = ExtResource("2_su338")
 
 [node name="tongue_speedbar" type="Sprite2D" parent="."]
+visibility_layer = 524289
+z_index = 5
 position = Vector2(424, 386)
 scale = Vector2(3.62121, 4.1)
 texture = ExtResource("2_su338")
 
 [node name="tongue_dmgbar" type="Sprite2D" parent="."]
+visibility_layer = 524289
+z_index = 5
 position = Vector2(425, 449)
 scale = Vector2(3.52273, 4.3)
 texture = ExtResource("2_su338")
 
 [node name="Card" type="Sprite2D" parent="."]
+visibility_layer = 524289
+z_index = 5
 position = Vector2(587, 323)
 scale = Vector2(3.50488, 3.36328)
 texture = ExtResource("2_dhi50")
 
 [node name="spit_speed" type="Button" parent="."]
 self_modulate = Color(0.227451, 0.227451, 0.227451, 0)
+visibility_layer = 524289
+z_index = 5
 offset_left = 601.0
 offset_top = 201.0
 offset_right = 628.0
@@ -42,6 +54,8 @@ action_mode = 0
 
 [node name="spit_dmg" type="Button" parent="."]
 self_modulate = Color(0.227451, 0.227451, 0.227451, 0)
+visibility_layer = 524289
+z_index = 5
 offset_left = 602.0
 offset_top = 265.0
 offset_right = 628.0
@@ -50,6 +64,8 @@ action_mode = 0
 
 [node name="tongue_speed" type="Button" parent="."]
 self_modulate = Color(0.227451, 0.227451, 0.227451, 0)
+visibility_layer = 524289
+z_index = 5
 offset_left = 602.0
 offset_top = 366.0
 offset_right = 629.0
@@ -58,6 +74,8 @@ action_mode = 0
 
 [node name="tongue_dmg" type="Button" parent="."]
 self_modulate = Color(0.227451, 0.227451, 0.227451, 0)
+visibility_layer = 524289
+z_index = 5
 offset_left = 602.0
 offset_top = 435.0
 offset_right = 628.0
@@ -66,6 +84,8 @@ action_mode = 0
 
 [node name="exit_button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+visibility_layer = 524289
+z_index = 5
 offset_left = 506.0
 offset_top = 504.0
 offset_right = 661.0

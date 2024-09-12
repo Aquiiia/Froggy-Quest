@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://diw0s5wqs6mx6"]
+[gd_scene load_steps=18 format=4 uid="uid://diw0s5wqs6mx6"]
 
 [ext_resource type="Texture2D" uid="uid://b4cn6f64vdac2" path="res://SceneTrigger/ZRPGBeach.png" id="1_0gibs"]
 [ext_resource type="Texture2D" uid="uid://ca03vgxdxkx30" path="res://Background-Texture/tileset_water.png" id="2_cdlvv"]
@@ -4844,6 +4844,9 @@ size = Vector2(80, 688)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xdpi"]
 size = Vector2(61, 435)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_670b8"]
+size = Vector2(56, 76)
+
 [node name="Swamp" type="Node2D"]
 
 [node name="Dirt" type="TileMapLayer" parent="."]
@@ -4883,3 +4886,7 @@ shape = SubResource("RectangleShape2D_7xdpi")
 [node name="WorldBorder_RSide2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1180, 108)
 shape = SubResource("RectangleShape2D_7xdpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1191, 355)
+shape = SubResource("RectangleShape2D_670b8")

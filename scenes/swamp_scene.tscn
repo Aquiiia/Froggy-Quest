@@ -1,13 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqdyi86qyvc2x"]
+[gd_scene load_steps=10 format=3 uid="uid://cqdyi86qyvc2x"]
 
 [ext_resource type="PackedScene" uid="uid://diw0s5wqs6mx6" path="res://swamp/Swamp.tscn" id="1_40ctb"]
 [ext_resource type="Script" path="res://scenes/jungle.gd" id="1_f8mcv"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="3_r7mcr"]
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="4_4n1kk"]
 [ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="6_8jujq"]
+[ext_resource type="PackedScene" uid="uid://c0q0m0icsj87f" path="res://levelup.tscn" id="6_oi8gw"]
+[ext_resource type="PackedScene" uid="uid://2oi03arkipp7" path="res://next_map.tscn" id="7_5wwj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qk30f"]
-size = Vector2(34.75, 103.5)
+size = Vector2(12.375, 47.375)
 
 [sub_resource type="Curve2D" id="Curve2D_6dm8x"]
 _data = {
@@ -25,7 +27,7 @@ position = Vector2(-4, 0)
 process_mode = 3
 
 [node name="SceneTrigger2" parent="." instance=ExtResource("4_4n1kk")]
-position = Vector2(1229, 357)
+position = Vector2(1151, 358)
 connected_scene = "jungle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger2"]
@@ -43,3 +45,9 @@ position = Vector2(0, 0.996905)
 
 [node name="StartPos" type="Marker2D" parent="."]
 position = Vector2(13, 324)
+
+[node name="Levelup" parent="." instance=ExtResource("6_oi8gw")]
+visible = false
+
+[node name="Next_map" parent="." instance=ExtResource("7_5wwj2")]
+visible = false

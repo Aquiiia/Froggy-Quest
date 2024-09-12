@@ -12,6 +12,10 @@ func _ready() -> void:
 
 func start_wave(wave: int) -> void:
 	if wave >= mobs_per_wave.size(): # Checks if all waves are complete
+		
+		var new_map_choice = get_parent().get_node("Next_map")
+		new_map_choice.show()
+		
 		return
 	mobs_left = mobs_per_wave[wave]  # Set how many mobs need to be killed
 	for i in range(mobs_left):

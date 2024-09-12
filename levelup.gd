@@ -1,5 +1,7 @@
 extends Node2D
 
+#Pausa bakgrunden när denna är öppen
+
 var spit_sb_posx = 424
 var spit_db_posx = 424
 var tongue_sb_posx = 424
@@ -12,13 +14,14 @@ var tongue_d_pressed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print($spit_speedbar.position,$spit_dmgbar.position, $tongue_dmgbar.position, $tongue_speedbar.position)
+	#print($spit_speedbar.position,$spit_dmgbar.position, $tongue_dmgbar.position, $tongue_speedbar.position)
 	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
 	pass
 
 
@@ -92,5 +95,13 @@ func disable_buttons_with_ending():
 
 func _on_exit_button_pressed() -> void:
 	print("Exit button")
-	#För vidare till den scenen den spelas i och stäng "LEVELUP" den från main sidan genom en signla???
-	pass # Replace with function body.
+	hide_all_children()
+	
+
+func hide_all_children():
+	
+	for children in get_children(): #Stänger ner
+		if children is Button:
+			children.disabled = false
+		
+		children.hide()

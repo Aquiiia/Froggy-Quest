@@ -34,6 +34,7 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	
+	
 	print(xp)
 	# Update the timer (spit)
 	last_spit_time += delta
@@ -123,9 +124,35 @@ func _on_hurt_box_entered(_body: Node2D) -> void:
 	
 func increase_xp(amount: int) -> void:
 	xp += amount
+	Global.player_data["xp"] = xp #Uppdaterar alla froogs
+	
+	
+	level_Up()
 	print("Frog XP increased to: ", xp)
 	
-#func level_Up():
+func level_Up():
+	var show_card = false
+	if xp == 5:
+		show_card = true
+		#Funkar, men fråga erik hur man gör så att spelet pausas :D
+		print("Level up: 5 xp")
+	elif xp == 15:
+		show_card = true
+		#show levelup 
+		print("Level up: 15 xp")
+	elif xp > 15 and xp % 15 == 0: 
+		show_card = true
+		#show levelup 
+		print("Level up: 30 or higher xp")
 	
+	if show_card == true:
+		var level_up_card = get_parent().get_node("Levelup")
+		level_up_card.show()
+		
+		for child in level_up_card.get_children():
+			child.show()
+			
+		#Pausa spelet här
+		
 	
 	
