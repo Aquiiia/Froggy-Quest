@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal froggy_killed
+signal HealthChanged
 
 @export var hp = 10
 @export var speed = 150
@@ -17,7 +18,7 @@ signal froggy_killed
 
 #Variables spit
 var spit_speed = 400
-var spit_cooldown = 1.5
+var spit_cooldown = 0.1
 var last_spit_time = 100
 
 var is_tongue_attacking = false
@@ -131,6 +132,8 @@ func _on_hurt_box_entered(_body: Node2D) -> void:
 	if hp > 0:
 		hp -= 1
 		Global.player_data["health"] = hp
+		HealthChanged.emit()
+		Global.health_changed = true
 		print(hp)
 	else:
 		froggy_killed.emit()

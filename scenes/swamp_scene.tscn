@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqdyi86qyvc2x"]
+[gd_scene load_steps=11 format=3 uid="uid://cqdyi86qyvc2x"]
 
 [ext_resource type="PackedScene" uid="uid://diw0s5wqs6mx6" path="res://swamp/Swamp.tscn" id="1_40ctb"]
 [ext_resource type="Script" path="res://scenes/jungle.gd" id="1_f8mcv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="6_8jujq"]
 [ext_resource type="PackedScene" uid="uid://c0q0m0icsj87f" path="res://levelup.tscn" id="6_oi8gw"]
 [ext_resource type="PackedScene" uid="uid://2oi03arkipp7" path="res://next_map.tscn" id="7_5wwj2"]
+[ext_resource type="PackedScene" uid="uid://bo802pxv4i2jl" path="res://health_bar.tscn" id="8_hu7ce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qk30f"]
 size = Vector2(12.375, 47.375)
@@ -51,3 +52,5 @@ visible = false
 
 [node name="Next_map" parent="." instance=ExtResource("7_5wwj2")]
 visible = false
+
+[node name="health_bar" parent="." instance=ExtResource("8_hu7ce")]

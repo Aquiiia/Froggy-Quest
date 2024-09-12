@@ -16,3 +16,7 @@ func _ready():
 
 	
 	Global.doors_open = false
+	
+	var healthbar = get_node("health_bar")
+	var health_progress = healthbar.get_child(0)
+	health_progress.value = Global.player_data["health"]

@@ -21,6 +21,7 @@ var upgrade_btns: Dictionary = {
 
 var doors_open = false
 
+var health_changed = false
 
 
 # Called when the node enters the scene tree for the first time.
