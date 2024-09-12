@@ -13,6 +13,7 @@ var tongue_d_pressed = Global.upgrade_btns["td"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	#print($spit_speedbar.position,$spit_dmgbar.position, $tongue_dmgbar.position, $tongue_speedbar.position)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	#Sätter de till positionen som de var innan de bytte
@@ -20,12 +21,12 @@ func _ready() -> void:
 	$spit_dmgbar.position.x = Global.upgrades_bars["sdb"]
 	$tongue_speedbar.position.x = Global.upgrades_bars["tsb"]
 	$tongue_dmgbar.position.x = Global.upgrades_bars["tdb"]
+	
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	
 	pass
 
 

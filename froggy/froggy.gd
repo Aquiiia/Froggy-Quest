@@ -85,17 +85,20 @@ func tongue_attack():
 	
 	is_tongue_attacking = true
 	
-	if tongue_scene != null:
-		var tongue_instance = tongue_scene.instantiate()
+	if tongue_scene != null: #tongue_scene här och tonguescene är basically samma
+		var tonguescene = preload("res://froggy/Attacks/tongue.tscn")
+		var tongue_instance = tonguescene.instantiate()
 		
+		#add_child(tongue_instance)
 		var direction = Vector2(1, 2) if not sprite.flip_h else Vector2(-1, 2)
 		var tongue_position = position + direction * -10  # Adjust to be near the mouth
 		
 		tongue_instance.position = tongue_position
 		
-		get_parent().add_child(tongue_instance)
+		get_parent().add_child(tongue_instance) #get.parent()
+		var animated_sprite = tongue_instance.get_node("AnimatedSprite2D")
 		
-		animsprite.play("tongue_attack")
+		animated_sprite.play("tongue_attacker")
 		
 		await get_tree().create_timer(tongue_range).timeout
 		

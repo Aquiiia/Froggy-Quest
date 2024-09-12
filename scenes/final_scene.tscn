@@ -1,9 +1,8 @@
-[gd_scene load_steps=34 format=4 uid="uid://bomjgagq1yq60"]
+[gd_scene load_steps=35 format=4 uid="uid://bomjgagq1yq60"]
 
 [ext_resource type="Texture2D" uid="uid://djgdbd30q7skq" path="res://Background-Texture/sand.png" id="1_k8bon"]
 [ext_resource type="Texture2D" uid="uid://bv53qrlswlqlh" path="res://Background-Texture/ZRPGBeach.png" id="2_u6twh"]
 [ext_resource type="Texture2D" uid="uid://c1qhnderdn8rr" path="res://Background-Texture/grass_tileset_16x16/tileset_cave.png" id="3_hrggu"]
-[ext_resource type="PackedScene" path="res://goon/queen_fly.tscn" id="6_qxmgp"]
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="6_3lyxl"]
 [ext_resource type="PackedScene" uid="uid://dft8wekitw4aw" path="res://goon/queen_fly.tscn" id="6_qxmgp"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="6_u1vpj"]

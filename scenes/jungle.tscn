@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="5_jkgxt"]
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="6_etm7i"]
 [ext_resource type="PackedScene" uid="uid://c0q0m0icsj87f" path="res://levelup.tscn" id="6_qlivv"]
-[ext_resource type="PackedScene" path="res://next_map.tscn" id="7_jt60p"]
+[ext_resource type="PackedScene" uid="uid://2oi03arkipp7" path="res://next_map.tscn" id="7_jt60p"]
 
 [sub_resource type="Curve2D" id="Curve2D_7njrl"]
 _data = {

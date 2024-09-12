@@ -45,8 +45,7 @@ position = Vector2(16, -1)
 scale = Vector2(0.0677273, 0.0937501)
 sprite_frames = SubResource("SpriteFrames_srpvw")
 animation = &"tongue_attacker"
-frame = 1
-frame_progress = 0.28483
+frame_progress = 0.738405
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, 0)
