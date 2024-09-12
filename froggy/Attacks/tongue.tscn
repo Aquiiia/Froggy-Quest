@@ -1,7 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1tgkr4saao2t"]
+[gd_scene load_steps=10 format=3 uid="uid://d1tgkr4saao2t"]
 
-[ext_resource type="Texture2D" uid="uid://pf4jwnpukbsk" path="res://img/tongue.png" id="1_t2x0b"]
 [ext_resource type="Script" path="res://froggy/Attacks/tongue.gd" id="1_yls4u"]
+[ext_resource type="Texture2D" uid="uid://dfduuky3d85uq" path="res://img/White Slash Thin/File1.png" id="2_pjj3e"]
+[ext_resource type="Texture2D" uid="uid://bxdfmjpiaqeiq" path="res://img/White Slash Thin/File2.png" id="3_u0xwg"]
+[ext_resource type="Texture2D" uid="uid://im3lh0h60bp0" path="res://img/White Slash Thin/File3.png" id="4_e80sp"]
+[ext_resource type="Texture2D" uid="uid://dn1idxhkgfkbm" path="res://img/White Slash Thin/File4.png" id="5_guu6l"]
+[ext_resource type="Texture2D" uid="uid://dpdtnx6am72oo" path="res://img/White Slash Thin/File5.png" id="6_gxua6"]
+[ext_resource type="Texture2D" uid="uid://dore73arya2te" path="res://img/White Slash Thin/File6.png" id="7_ihdy5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srpvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pjj3e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u0xwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e80sp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_guu6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gxua6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ihdy5")
+}],
+"loop": true,
+"name": &"tongue_attacker",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as5g1"]
 size = Vector2(30, 13)
@@ -9,10 +40,14 @@ size = Vector2(30, 13)
 [node name="Tongue" type="Area2D"]
 script = ExtResource("1_yls4u")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, -5)
-texture = ExtResource("1_t2x0b")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -1)
+scale = Vector2(0.0677273, 0.0937501)
+sprite_frames = SubResource("SpriteFrames_srpvw")
+animation = &"tongue_attacker"
+frame = 1
+frame_progress = 0.28483
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(15, -3.5)
+position = Vector2(16, 0)
 shape = SubResource("RectangleShape2D_as5g1")

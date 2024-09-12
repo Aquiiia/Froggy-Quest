@@ -2,7 +2,7 @@ extends Node2D
 class_name State
 
 @onready var debug = owner.find_child("debug")
-@onready var froggy = owner.get_parent().find_child("froggy")
+@onready var player = owner.get_parent().find_child("Froggy")
 
 func _ready():
 	set_physics_process(false)

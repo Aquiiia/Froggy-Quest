@@ -40,7 +40,7 @@ func _mob_creator():
 	direction += randf_range(-PI / 4, PI / 4)
 	mob.rotation = direction
 	
-	# Spawn the mob by adding it to the Main scene.
+	# Spawn the mob by adding it to the scene.
 	call_deferred("add_child", mob)
 	mob.add_to_group("enemies")
 	mob.connect("mob_died", Callable(self, "_on_mob_died"))
