@@ -1,17 +1,27 @@
 extends Node
 
 var player_data: Dictionary = {
-	"health": 100,
+	"health": 10,
 	"xp": 0
 }
 
 var upgrades_bars: Dictionary = { # keep update on upgradebars ;D
-	"yay": 10
+	"ssb": 424,
+	"sdb": 424,
+	"tsb": 424,
+	"tdb": 424
 }
+
+var upgrade_btns: Dictionary = {
+	"ss": 0,
+	"sd": 0,
+	"ts": 0,
+	"td": 0
+	}
 
 var doors_open = false
 
-var show_card = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

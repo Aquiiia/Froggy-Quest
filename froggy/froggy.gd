@@ -118,6 +118,7 @@ func _on_tongue_attack_finished(anim_name: String, tongue_instance: Node2D):
 func _on_hurt_box_entered(_body: Node2D) -> void:
 	if hp > 0:
 		hp -= 1
+		Global.player_data["health"] = hp
 		print(hp)
 	else:
 		froggy_killed.emit()
@@ -145,13 +146,21 @@ func level_Up():
 		#show levelup 
 		print("Level up: 30 or higher xp")
 	
+	
 	if show_card == true:
+		
 		var level_up_card = get_parent().get_node("Levelup")
 		level_up_card.show()
 		
 		for child in level_up_card.get_children():
 			child.show()
-			
+		
+		get_tree().paused = true
+		
+		#level_up_card.pause_mode = Node.PROCESS_MODE_WHEN_PAUSED
+		#for child in level_up_card.get_children():	
+			#if child is Node:
+				#child.pause_mode = Node.PROCESS_MODE_WHEN_PAUSED
 		#Pausa spelet här
 		
 	

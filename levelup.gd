@@ -1,21 +1,25 @@
 extends Node2D
 
 #Pausa bakgrunden när denna är öppen
-
-var spit_sb_posx = 424
-var spit_db_posx = 424
-var tongue_sb_posx = 424
-var tongue_db_posx = 424
-
-var spit_s_pressed = 0
-var spit_d_pressed = 0
-var tongue_s_pressed = 0
-var tongue_d_pressed = 0
+var spit_sb_posx = Global.upgrades_bars["ssb"]
+var spit_db_posx = Global.upgrades_bars["sdb"]
+var tongue_sb_posx = Global.upgrades_bars["tsb"]
+var tongue_db_posx = Global.upgrades_bars["tdb"]
+	
+var spit_s_pressed = Global.upgrade_btns["ss"]
+var spit_d_pressed = Global.upgrade_btns["sd"]
+var tongue_s_pressed = Global.upgrade_btns["ts"]
+var tongue_d_pressed = Global.upgrade_btns["td"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#print($spit_speedbar.position,$spit_dmgbar.position, $tongue_dmgbar.position, $tongue_speedbar.position)
-	
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	#Sätter de till positionen som de var innan de bytte
+	$spit_speedbar.position.x = Global.upgrades_bars["ssb"]
+	$spit_dmgbar.position.x = Global.upgrades_bars["sdb"]
+	$tongue_speedbar.position.x = Global.upgrades_bars["tsb"]
+	$tongue_dmgbar.position.x = Global.upgrades_bars["tdb"]
 	pass # Replace with function body.
 
 
@@ -27,64 +31,74 @@ func _process(_delta: float) -> void:
 
 func _on_spit_speed_pressed() -> void:
 	print("Mjauw")
-	
-	spit_s_pressed += 1
-	
-	disable_buttons_with_ending()
-	
-	#Upgrade the bar 1
-	spit_sb_posx += 28
-	$spit_speedbar.position.x = spit_sb_posx
-	
-	#No more upgrades
-	if spit_s_pressed == 4:
+	if spit_s_pressed == 4:#No more upgrades
 		$spit_speed.visible = false
+	else:
+		spit_s_pressed += 1
+		
+		disable_buttons_with_ending()
+		
+		#Upgrade the bar 1
+		spit_sb_posx += 28
+		$spit_speedbar.position.x = spit_sb_posx
+		Global.upgrades_bars["ssb"] = spit_sb_posx
+		
+	
+	
 
 
 func _on_spit_dmg_pressed() -> void:
 	print("Eh")
-	spit_d_pressed += 1
-	
-	disable_buttons_with_ending()
-	
-	#Upgrade the bar 1
-	spit_db_posx += 28
-	$spit_dmgbar.position.x = spit_db_posx
-	
 	#No more upgrades
 	if spit_d_pressed == 4:
 		$spit_dmg.visible = false
+	else:
+		
+		spit_d_pressed += 1
+		
+		disable_buttons_with_ending()
+		
+		#Upgrade the bar 1
+		spit_db_posx += 28
+		$spit_dmgbar.position.x = spit_db_posx
+		Global.upgrades_bars["sdb"] = spit_db_posx
+		
+	
 
 
 func _on_tongue_speed_pressed() -> void:
 	print("Ye")
-	tongue_s_pressed += 1
-	
-	disable_buttons_with_ending()
-	
-	#Upgrade the bar 1
-	tongue_sb_posx += 28
-	$tongue_speedbar.position.x = tongue_sb_posx
-	
-	#No more upgrades
 	if tongue_s_pressed == 4:
 		$tongue_speed.visible = false
+	else:
+		tongue_s_pressed += 1
+		
+		disable_buttons_with_ending()
+		
+		#Upgrade the bar 1
+		tongue_sb_posx += 28
+		$tongue_speedbar.position.x = tongue_sb_posx
+		Global.upgrades_bars["tsb"] = tongue_sb_posx
+		
+	
+	
 	
 	
 
 func _on_tongue_dmg_pressed() -> void:
 	print("UGH")
-	tongue_d_pressed += 1
-	
-	disable_buttons_with_ending()
-	
-	#Upgrade the bar 1
-	tongue_db_posx += 28
-	$tongue_dmgbar.position.x = tongue_db_posx
-	
-	#No more upgrades
 	if tongue_d_pressed == 4:
 		$tongue_dmg.visible = false
+	else:
+		tongue_d_pressed += 1
+		
+		disable_buttons_with_ending()
+		
+		#Upgrade the bar 1
+		tongue_db_posx += 28
+		$tongue_dmgbar.position.x = tongue_db_posx
+		Global.upgrades_bars["tdb"] = tongue_db_posx
+		
 	
 func disable_buttons_with_ending():
 	for child in get_children():
@@ -96,6 +110,8 @@ func disable_buttons_with_ending():
 func _on_exit_button_pressed() -> void:
 	print("Exit button")
 	hide_all_children()
+	
+	get_tree().paused = false
 	
 
 func hide_all_children():
