@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbkegp4etcpw1"]
+[gd_scene load_steps=5 format=3 uid="uid://c3w48qmk7qnhn"]
 
 [ext_resource type="Texture2D" uid="uid://bx1uhy28qrb8d" path="res://swamp/xp_ore.png" id="1_658hs"]
 [ext_resource type="Script" path="res://scenes/orb.gd" id="1_hklho"]

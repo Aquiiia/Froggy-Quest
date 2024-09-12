@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="4_4n1kk"]
 [ext_resource type="PackedScene" uid="uid://dfxxvghw7ddpf" path="res://goon/mob_spawner.tscn" id="6_8jujq"]
 [ext_resource type="PackedScene" uid="uid://c0q0m0icsj87f" path="res://levelup.tscn" id="6_oi8gw"]
-[ext_resource type="PackedScene" uid="uid://2oi03arkipp7" path="res://next_map.tscn" id="7_5wwj2"]
+[ext_resource type="PackedScene" path="res://next_map.tscn" id="7_5wwj2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qk30f"]
 size = Vector2(12.375, 47.375)

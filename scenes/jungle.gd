@@ -8,7 +8,7 @@ func game_over() -> void:
 func _ready():
 	var player = preload("res://froggy/frooog.tscn").instantiate()
 	add_child(player)
+	player.add_to_group("player")
 	player.xp = Global.player_data["xp"] #hämtar datan för alla frogs
 	player.position = $StartPos.position
 	Global.doors_open = false
-	pass

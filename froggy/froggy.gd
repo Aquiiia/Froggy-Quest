@@ -16,7 +16,7 @@ signal froggy_killed
 
 #Variables spit
 var spit_speed = 400
-var spit_cooldown = 0.1
+var spit_cooldown = 1.5
 var last_spit_time = 100
 
 var is_tongue_attacking = false
@@ -35,7 +35,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	
-	print(xp)
+	#print(xp)
 	# Update the timer (spit)
 	last_spit_time += delta
 	#print("Time since last spit: ", last_spit_time)
@@ -154,5 +154,4 @@ func level_Up():
 			
 		#Pausa spelet här
 		
-	
 	

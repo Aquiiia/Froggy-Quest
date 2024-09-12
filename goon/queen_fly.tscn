@@ -1,20 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dft8wekitw4aw"]
+[gd_scene load_steps=11 format=3 uid="uid://dft8wekitw4aw"]
 
+[ext_resource type="Script" path="res://goon/queen_fly.gd" id="1_eyewq"]
 [ext_resource type="Texture2D" uid="uid://bxpqiqwagokus" path="res://img/queen_fly_turned.png" id="1_wf2gd"]
 [ext_resource type="Texture2D" uid="uid://6t34w8r433gr" path="res://img/spit.png" id="2_is28g"]
 [ext_resource type="Script" path="res://goon/enemy_ai/state_machine.gd" id="3_bbvds"]
+[ext_resource type="Script" path="res://goon/idle.gd" id="4_2gkka"]
 [ext_resource type="Script" path="res://goon/state.gd" id="4_vvdfg"]
+[ext_resource type="Script" path="res://goon/follow.gd" id="5_v0m72"]
+[ext_resource type="Script" path="res://goon/bite.gd" id="7_6t6rv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_356wp"]
 radius = 30.3785
 height = 149.997
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a06cx"]
-radius = 328.098
+radius = 384.083
 
 [node name="QueenFly" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 5
 collision_mask = 0
+script = ExtResource("1_eyewq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
@@ -36,6 +41,7 @@ flip_h = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -49,7 +55,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 value = 100.0
 
-[node name="Label" type="Label" parent="CanvasLayer/ProgressBar"]
+[node name="BossName" type="Label" parent="CanvasLayer/ProgressBar"]
 self_modulate = Color(0.95, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -68,7 +74,7 @@ text = "Queen Fly"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="KillMessage" type="Label" parent="CanvasLayer"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -95,7 +101,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerDection" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 6
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDection"]
 shape = SubResource("CircleShape2D_a06cx")
@@ -104,16 +111,21 @@ shape = SubResource("CircleShape2D_a06cx")
 script = ExtResource("3_bbvds")
 
 [node name="Idle" type="Node2D" parent="StateMachine"]
-script = ExtResource("4_vvdfg")
+script = ExtResource("4_2gkka")
 
 [node name="Follow" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_v0m72")
+
+[node name="Bite" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_6t6rv")
+
+[node name="Charge" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_vvdfg")
 
 [node name="Spit" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_vvdfg")
 
-[node name="Charge" type="Node2D" parent="StateMachine"]
-script = ExtResource("4_vvdfg")
-
 [node name="Death" type="Node2D" parent="StateMachine"]
 script = ExtResource("4_vvdfg")
+
+[connection signal="body_entered" from="PlayerDection" to="StateMachine/Idle" method="_on_player_dection_body_entered"]
