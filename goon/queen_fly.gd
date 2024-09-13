@@ -18,6 +18,7 @@ func _ready():
 	set_physics_process(false) 
 
 func _process(_delta):
+	
 	direction = player.position - position
 	
 	if direction.x < 0:

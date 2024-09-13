@@ -18,6 +18,9 @@ func _on_return_timer_timeout() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	$intro.show()
+	await get_tree().create_timer(7).timeout
+	$intro.hide()
 	get_tree().change_scene_to_file("res://scenes/swamp_scene.tscn")
 	start_game.emit()
 	

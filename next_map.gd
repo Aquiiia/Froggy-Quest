@@ -20,19 +20,3 @@ func _on_gobutton_pressed() -> void:
 		children.hide()
 	Global.doors_open = true
 	get_tree().paused = false
-	
-
-
-func _on_staybutton_pressed() -> void:
-	for children in get_children():
-		children.hide()
-	$mapbuttton.show()
-	get_tree().paused = false
-
-
-func _on_mapbuttton_pressed() -> void:
-	#Öppnar choices
-	for children in get_children():
-		children.show()
-	get_tree().paused = true
-	pass # Replace with function body.
