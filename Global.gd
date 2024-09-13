@@ -12,6 +12,7 @@ var upgrades_bars: Dictionary = { # keep update on upgradebars ;D
 	"tdb": 424
 }
 
+
 var upgrade_btns: Dictionary = {
 	"ss": 0,
 	"sd": 0,
@@ -29,6 +30,7 @@ var player_abilities: Dictionary = {
 	"tongue_cooldown": 3,
 	"tongue_damage": 8
 }
+
 var swamp_flies: Dictionary = {
 	"health": 10, #2 shot
 	"damage": 1
