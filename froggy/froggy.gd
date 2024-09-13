@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 signal froggy_killed
-signal HealthChanged
 
 @export var hp = 10
 @export var speed = 150
@@ -18,7 +17,7 @@ signal HealthChanged
 
 #Variables spit
 var spit_speed = 400
-var spit_cooldown = 0.1
+var spit_cooldown = Global.player_abilities["spit_cooldown"]
 var last_spit_time = 100
 
 var is_tongue_attacking = false
@@ -130,9 +129,16 @@ func _on_tongue_attack_finished(anim_name: String, tongue_instance: Node2D):
 
 func _on_hurt_box_entered(_body: Node2D) -> void:
 	if hp > 0:
-		hp -= 1
+		var scene = get_tree().current_scene
+		var scenename = scene.name
+		
+		if scenename == "Swamp_scene":
+			hp -= Global.swamp_flies["damage"]
+		elif scenename == "Main":
+			hp -= Global.jungle_flies["damage"]
+		
 		Global.player_data["health"] = hp
-		HealthChanged.emit()
+		
 		Global.health_changed = true
 		print(hp)
 	else:

@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_spit_speed_pressed() -> void:
-	print("Mjauw")
+	
 	if spit_s_pressed == 4:#No more upgrades
 		$spit_speed.visible = false
 	else:
@@ -43,13 +43,11 @@ func _on_spit_speed_pressed() -> void:
 		spit_sb_posx += 28
 		$spit_speedbar.position.x = spit_sb_posx
 		Global.upgrades_bars["ssb"] = spit_sb_posx
-		
-	
-	
+		upgrade_abilities("SCD")
 
 
 func _on_spit_dmg_pressed() -> void:
-	print("Eh")
+	
 	#No more upgrades
 	if spit_d_pressed == 4:
 		$spit_dmg.visible = false
@@ -63,12 +61,10 @@ func _on_spit_dmg_pressed() -> void:
 		spit_db_posx += 28
 		$spit_dmgbar.position.x = spit_db_posx
 		Global.upgrades_bars["sdb"] = spit_db_posx
-		
+		upgrade_abilities("SD")
 	
 
-
 func _on_tongue_speed_pressed() -> void:
-	print("Ye")
 	if tongue_s_pressed == 4:
 		$tongue_speed.visible = false
 	else:
@@ -80,14 +76,12 @@ func _on_tongue_speed_pressed() -> void:
 		tongue_sb_posx += 28
 		$tongue_speedbar.position.x = tongue_sb_posx
 		Global.upgrades_bars["tsb"] = tongue_sb_posx
-		
-	
-	
-	
+		upgrade_abilities("TCD")
 	
 
 func _on_tongue_dmg_pressed() -> void:
-	print("UGH")
+	#print("UGH")
+	
 	if tongue_d_pressed == 4:
 		$tongue_dmg.visible = false
 	else:
@@ -99,7 +93,7 @@ func _on_tongue_dmg_pressed() -> void:
 		tongue_db_posx += 28
 		$tongue_dmgbar.position.x = tongue_db_posx
 		Global.upgrades_bars["tdb"] = tongue_db_posx
-		
+		upgrade_abilities("TD")
 	
 func disable_buttons_with_ending():
 	for child in get_children():
@@ -122,3 +116,13 @@ func hide_all_children():
 			children.disabled = false
 		
 		children.hide()
+
+func upgrade_abilities(function):
+	if function == "SCD":
+		Global.player_abilities["spit_cooldown"] -= 0.15
+	elif function == "SD":
+		Global.player_abilities["spit_damage"] += 5
+	elif function == "TCD":
+		Global.player_abilities["tongue_cooldown"] -= 0.1
+	elif function == "TD":
+		Global.player_abilities["tongue_damage"] += 6

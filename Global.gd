@@ -23,6 +23,22 @@ var doors_open = false
 
 var health_changed = false
 
+var player_abilities: Dictionary = {
+	"spit_cooldown": 0.8,
+	"spit_damage": 5,
+	"tongue_cooldown": 1,
+	"tongue_damage": 8
+}
+var swamp_flies: Dictionary = {
+	"health": 10, #2 shot
+	"damage": 1
+}
+
+var jungle_flies: Dictionary = {
+	"health": 25,
+	"damage": 2
+}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

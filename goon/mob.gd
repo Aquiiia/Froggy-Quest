@@ -2,13 +2,27 @@ extends CharacterBody2D
 
 signal mob_died
 
-@export var speed = 100
-@export var health = 2
+@export var speed = 75
+@export var health = 10
+
+var flyhealth = Global.swamp_flies["health"]
+
+var jungle_fly = load("res://img/djungle_fly.png")
 
 var froggy_chase = false
 var froggy = null
 
+#func _ready():
+	
+	
 func _physics_process(_delta):
+	var scene = get_tree().current_scene
+	#print(scene.name)
+	if scene.name == "Main":
+		$Sprite2D.texture = jungle_fly
+		flyhealth = Global.jungle_flies["health"]
+		speed = 140
+	
 	if froggy_chase:
 		position += (froggy.position - position) / speed
 		move_and_collide(Vector2(0,0))
@@ -36,15 +50,6 @@ func die() -> void:
 	
 	
 func xp_n_special_item(_location):
-	var rng = RandomNumberGenerator.new()
-	
-	#Olika chans beroende på om man är i olika waves, sätt if satster
-	
-	var is_number = rng.randf_range(0.0, 100.0)
-	
-	if is_number == 1:
-		#Drop item
-		print("YE")
 	
 	var scene_to_add = load("res://scenes/orb.tscn")
 	var current_scene = get_tree().current_scene

@@ -1,10 +1,12 @@
 extends Area2D
 
 var velocity = Vector2.ZERO
-@export var damage = 1
+@export var damage = 5
 
 func _physics_process(delta):
 	position += velocity * delta
+	
+	damage = Global.player_abilities["spit_damage"]
 	
 	if is_out_of_bounds():
 		queue_free()
