@@ -1,9 +1,10 @@
 extends Area2D
 
 @export var velocity = Vector2.ZERO
-@export var damage = 2  # How much damage the tongue deals
+@export var damage = 8 # How much damage the tongue deals
 
 func _physics_process(delta):
+	damage = Global.player_abilities["tongue_damage"] 
 	position += velocity * delta
 
 func _ready():

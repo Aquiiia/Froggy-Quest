@@ -26,7 +26,7 @@ var health_changed = false
 var player_abilities: Dictionary = {
 	"spit_cooldown": 0.8,
 	"spit_damage": 5,
-	"tongue_cooldown": 1,
+	"tongue_cooldown": 3,
 	"tongue_damage": 8
 }
 var swamp_flies: Dictionary = {

@@ -123,6 +123,6 @@ func upgrade_abilities(function):
 	elif function == "SD":
 		Global.player_abilities["spit_damage"] += 5
 	elif function == "TCD":
-		Global.player_abilities["tongue_cooldown"] -= 0.1
+		Global.player_abilities["tongue_cooldown"] -= 0.2
 	elif function == "TD":
 		Global.player_abilities["tongue_damage"] += 6

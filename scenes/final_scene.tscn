@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://bomjgagq1yq60"]
+[gd_scene load_steps=36 format=4 uid="uid://bomjgagq1yq60"]
 
 [ext_resource type="Texture2D" uid="uid://djgdbd30q7skq" path="res://Background-Texture/sand.png" id="1_k8bon"]
 [ext_resource type="Texture2D" uid="uid://bv53qrlswlqlh" path="res://Background-Texture/ZRPGBeach.png" id="2_u6twh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqbxofftri8ig" path="res://froggy/frooog.tscn" id="6_3lyxl"]
 [ext_resource type="PackedScene" uid="uid://dft8wekitw4aw" path="res://goon/queen_fly.tscn" id="6_qxmgp"]
 [ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="6_u1vpj"]
+[ext_resource type="PackedScene" uid="uid://bo802pxv4i2jl" path="res://health_bar.tscn" id="7_54mhm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4el2u"]
 texture = ExtResource("1_k8bon")
@@ -18421,3 +18422,5 @@ position = Vector2(768, 312)
 position = Vector2(96, 336)
 
 [node name="HUD" parent="." instance=ExtResource("6_u1vpj")]
+
+[node name="health_bar" parent="." instance=ExtResource("7_54mhm")]

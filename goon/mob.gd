@@ -2,26 +2,26 @@ extends CharacterBody2D
 
 signal mob_died
 
-@export var speed = 75
-@export var health = 10
+@export var speed = 120
+#@export var health = 10
+var health = Global.swamp_flies["health"]
 
-var flyhealth = Global.swamp_flies["health"]
 
 var jungle_fly = load("res://img/djungle_fly.png")
 
 var froggy_chase = false
 var froggy = null
 
-#func _ready():
-	
-	
-func _physics_process(_delta):
+func _ready():
 	var scene = get_tree().current_scene
 	#print(scene.name)
 	if scene.name == "Main":
 		$Sprite2D.texture = jungle_fly
-		flyhealth = Global.jungle_flies["health"]
-		speed = 140
+		health = Global.jungle_flies["health"]#ändra detta
+		speed = 155
+	
+func _physics_process(_delta):
+	
 	
 	if froggy_chase:
 		position += (froggy.position - position) / speed
@@ -39,6 +39,7 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	print(health)
 	if health <= 0:
 		die()
 

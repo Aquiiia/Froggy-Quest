@@ -20,7 +20,7 @@ var spit_speed = 400
 var spit_cooldown = Global.player_abilities["spit_cooldown"]
 var last_spit_time = 100
 
-var tongue_cooldown = 2
+var tongue_cooldown = Global.player_abilities["tongue_cooldown"]
 var last_tongue_time = 100
 var is_tongue_attacking = false
 
