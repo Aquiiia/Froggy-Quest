@@ -39,6 +39,11 @@ var jungle_flies: Dictionary = {
 	"damage": 2
 }
 
+var boss_damage: Dictionary = {
+	"range_damage": 4,
+	"damage": 2
+}
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

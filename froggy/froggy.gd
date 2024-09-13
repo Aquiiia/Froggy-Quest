@@ -121,7 +121,7 @@ func tongue_attack():
 		else:
 			print("Tongue scene is not assigned!")
 
-func _on_hurt_box_entered(_body: Node2D) -> void:
+func damage_taken():
 	if hp > 0:
 		var scene = get_tree().current_scene
 		var scenename = scene.name
@@ -130,6 +130,8 @@ func _on_hurt_box_entered(_body: Node2D) -> void:
 			hp -= Global.swamp_flies["damage"]
 		elif scenename == "Main":
 			hp -= Global.jungle_flies["damage"]
+		elif scenename == "Final_scene":
+			hp -= Global.boss_damage["damage"]
 		
 		Global.player_data["health"] = hp
 		
@@ -137,7 +139,10 @@ func _on_hurt_box_entered(_body: Node2D) -> void:
 		print(hp)
 	else:
 		froggy_killed.emit()
-	
+
+func _on_hurt_box_entered(_body: Node2D) -> void:
+	damage_taken()
+
 func increase_xp(amount: int) -> void:
 	xp += amount
 	Global.player_data["xp"] = xp #Uppdaterar alla froogs

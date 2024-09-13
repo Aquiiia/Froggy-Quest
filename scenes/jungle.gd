@@ -8,6 +8,7 @@ func game_over() -> void:
 func _ready():
 	var player = preload("res://froggy/frooog.tscn").instantiate()
 	add_child(player)
+	player.connect("froggy_killed", Callable(self, "game_over"))
 	player.xp = Global.player_data["xp"]
 	player.hp = Global.player_data["health"] #hämtar datan för alla frogs
 	player.add_to_group("player")
