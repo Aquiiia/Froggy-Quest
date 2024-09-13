@@ -9,7 +9,7 @@ signal froggy_killed
 #@export var spit : PackedScene
 @export var spit : PackedScene = preload("res://froggy/Attacks/spit.tscn")
 @export var tongue_scene : PackedScene = preload("res://froggy/Attacks/tongue.tscn")
-@export var tongue_range = 100
+@export var tongue_range = 0.5
 
 @onready var sprite = $Sprite2D
 @onready var animsprite = $AnimatedSprite2D
@@ -20,7 +20,11 @@ var spit_speed = 400
 var spit_cooldown = Global.player_abilities["spit_cooldown"]
 var last_spit_time = 100
 
+var tongue_cooldown = 2
+var last_tongue_time = 100
 var is_tongue_attacking = false
+
+var active_tongue: Node2D = null 
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -39,9 +43,14 @@ func _physics_process(delta):
 	#print(xp)
 	# Update the timer (spit)
 	last_spit_time += delta
+	last_tongue_time += delta
 	#print("Time since last spit: ", last_spit_time)
 	
-	
+	#if active_tongue != null:
+		#var direction = Vector2(-1, 2) if not sprite.flip_h else Vector2(1, 2)
+		#var tongue_position = position + direction * -12 + Vector2(-100, 0) if not sprite.flip_h else position + direction * -12 + Vector2(80, 0)
+		#active_tongue.position = tongue_position
+		
 	if Input.is_action_just_pressed("spit"):
 		Spit()
 		print("pressed attack")
@@ -76,56 +85,41 @@ func Spit():
 		
 			last_spit_time = 0.0
 			print("Spit created at: ", spit_instance.position)
-	else:
-		print("Spit scene is not assigned!")
+		else:
+			print("Spit scene is not assigned!")
 
 func tongue_attack():
-	if is_tongue_attacking:
-		return  # Prevent another tongue attack while one is ongoing
-	
-	is_tongue_attacking = true
-	
-	if tongue_scene != null: #tongue_scene här och tonguescene är basically samma
-		var tonguescene = preload("res://froggy/Attacks/tongue.tscn")
-		var tongue_instance = tonguescene.instantiate()
+	if last_tongue_time >= tongue_cooldown:
+		if is_tongue_attacking:
+			return  # Prevent another tongue attack while one is ongoing
 		
-		#add_child(tongue_instance)
-		var direction = Vector2(1, 2) if not sprite.flip_h else Vector2(-1, 2)
-		var tongue_position = position + direction * -10  # Adjust to be near the mouth
+		is_tongue_attacking = true
 		
-		tongue_instance.position = tongue_position
+		if tongue_scene != null: #tongue_scene här och tonguescene är basically samma
+			var tonguescene = preload("res://froggy/Attacks/tongue.tscn")
+			var tongue_instance = tonguescene.instantiate()
+			var animated_sprite = tongue_instance.get_node("AnimatedSprite2D")
+			#add_child(tongue_instance)
 		
-		get_parent().add_child(tongue_instance) #get.parent()
-		var animated_sprite = tongue_instance.get_node("AnimatedSprite2D")
-		
-		animated_sprite.play("tongue_attacker")
-		
-		await get_tree().create_timer(tongue_range).timeout
-		
-		tongue_instance.queue_free()
-		is_tongue_attacking = false
-		animsprite.play("idle")
-		
-		# Animate the tongue extending and retracting
-		#var animation = AnimationPlayer.new()
-		#add_child(animation)
-		#
-		#animation.connect("animation_finished", self, "_on_tongue_attack_finished", [tongue_instance])
-		#var anim = Animation.new()
-		#anim.length = tongue_range / tongue_speed
-		#
-		#Animate the tongue moving out
-		#anim.track_insert_key(tongue_instance.position, 0, tongue_position)
-		#anim.track_insert_key(tongue_instance.position, anim.length, tongue_position + direction * tongue_range)
-		#
-		#animation.add_animation("extend", anim)
-		#animation.play("extend")
-	else:
-		print("Tongue scene is not assigned!")
-
-func _on_tongue_attack_finished(anim_name: String, tongue_instance: Node2D):
-	tongue_instance.queue_free()  # Remove the tongue after the animation
-	is_tongue_attacking = false
+			var direction = Vector2(-1, 2) if not sprite.flip_h else Vector2(1, 2)
+			var tongue_position = position + direction * -12 + Vector2(-100, 0) if not sprite.flip_h else position + direction * -12 + Vector2(80, 0)# Adjust to be near the mouth
+			
+			tongue_instance.position = tongue_position
+			
+			get_parent().add_child(tongue_instance) #get.parent()
+			
+			
+			animated_sprite.play("tongue_attacker")
+			
+			await get_tree().create_timer(tongue_range).timeout
+			
+			tongue_instance.queue_free()
+			#active_tongue = null
+			is_tongue_attacking = false
+			animated_sprite.play("idle")
+			last_tongue_time = 0.0
+		else:
+			print("Tongue scene is not assigned!")
 
 func _on_hurt_box_entered(_body: Node2D) -> void:
 	if hp > 0:
