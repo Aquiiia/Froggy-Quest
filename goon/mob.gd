@@ -13,6 +13,7 @@ var froggy_chase = false
 var froggy = null
 
 func _ready():
+func _physics_process(_delta):
 	var scene = get_tree().current_scene
 	#print(scene.name)
 	if scene.name == "Main":
@@ -51,7 +52,6 @@ func die() -> void:
 	
 	
 func xp_n_special_item(_location):
-	
 	var scene_to_add = load("res://scenes/orb.tscn")
 	var current_scene = get_tree().current_scene
 	var orb = scene_to_add.instantiate()

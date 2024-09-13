@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjo0cpux8kuuk"]
+
+[ext_resource type="Script" path="res://acidspit.gd" id="1_mb6vr"]
+[ext_resource type="Texture2D" uid="uid://6t34w8r433gr" path="res://img/spit.png" id="2_awu70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbtv6"]
+size = Vector2(88, 40)
+
+[node name="acid" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_mb6vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.139547, 0.739544, 0.447158, 1)
+scale = Vector2(9.25, 5)
+texture = ExtResource("2_awu70")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 4)
+shape = SubResource("RectangleShape2D_tbtv6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
