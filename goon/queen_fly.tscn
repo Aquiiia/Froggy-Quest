@@ -1,20 +1,26 @@
-[gd_scene load_steps=14 format=3 uid="uid://dft8wekitw4aw"]
+[gd_scene load_steps=18 format=3 uid="uid://dft8wekitw4aw"]
 
 [ext_resource type="Script" path="res://goon/queen_fly.gd" id="1_eyewq"]
 [ext_resource type="Texture2D" uid="uid://bxpqiqwagokus" path="res://img/queen_fly_turned.png" id="1_wf2gd"]
 [ext_resource type="Texture2D" uid="uid://6t34w8r433gr" path="res://img/spit.png" id="2_is28g"]
 [ext_resource type="Script" path="res://goon/enemy_ai/state_machine.gd" id="3_bbvds"]
 [ext_resource type="Script" path="res://goon/idle.gd" id="4_2gkka"]
+[ext_resource type="Texture2D" uid="uid://cis0rkyfq3dti" path="res://goon/progress_bar_pic.png" id="4_cgpjx"]
+[ext_resource type="Texture2D" uid="uid://ct8qw2kqhkk30" path="res://goon/boss_bar.png" id="5_mt04s"]
 [ext_resource type="Script" path="res://goon/follow.gd" id="5_v0m72"]
+[ext_resource type="Texture2D" uid="uid://5000ft41nq3k" path="res://goon/queen_fly.png" id="6_fxo00"]
 [ext_resource type="Script" path="res://goon/bite.gd" id="7_6t6rv"]
 [ext_resource type="Script" path="res://goon/charge.gd" id="8_mt32b"]
 [ext_resource type="Script" path="res://goon/spit.gd" id="9_nfa28"]
-[ext_resource type="PackedScene" uid="uid://cjo0cpux8kuuk" path="res://goon/acid_spit.tscn" id="10_b1lyh"]
+[ext_resource type="PackedScene" path="res://goon/acid_spit.tscn" id="10_b1lyh"]
 [ext_resource type="Script" path="res://goon/death.gd" id="11_606dd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_356wp"]
 radius = 30.3785
 height = 149.997
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfg8e"]
+texture = ExtResource("6_fxo00")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a06cx"]
 radius = 384.083
@@ -43,39 +49,49 @@ flip_h = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -87.0
-offset_right = 200.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
+[node name="ProgressBar" type="TextureProgressBar" parent="UI"]
+offset_left = 373.0
+offset_top = 587.0
+offset_right = 776.0
+offset_bottom = 646.0
 value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_cgpjx")
+texture_progress = ExtResource("5_mt04s")
 
 [node name="BossName" type="Label" parent="UI/ProgressBar"]
-self_modulate = Color(0.95, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = -0.287
 anchor_right = 0.5
 anchor_bottom = -0.287
-offset_left = -120.0
-offset_top = -40.031
-offset_right = 111.0
-offset_bottom = 26.969
+offset_left = -149.5
+offset_top = -47.067
+offset_right = 142.5
+offset_bottom = 26.933
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "Queen Fly"
+theme_override_styles/normal = SubResource("StyleBoxTexture_bfg8e")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ProgressBar1" type="ProgressBar" parent="UI"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -86.0
+offset_right = 199.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+value = 100.0
 
 [node name="KillMessage" type="Label" parent="UI"]
 visible = false
