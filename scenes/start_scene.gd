@@ -16,7 +16,6 @@ func _on_return_timer_timeout() -> void:
 	$Frog.position = $StartPos.position
 	
 
-
 func _on_start_button_pressed() -> void:
 	$intro.show()
 	await get_tree().create_timer(7).timeout

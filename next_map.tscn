@@ -8,8 +8,8 @@ script = ExtResource("1_wrt6v")
 
 [node name="Map" type="Sprite2D" parent="."]
 z_index = 12
-position = Vector2(584, 324)
-scale = Vector2(3.73828, 3.45313)
+position = Vector2(579.375, 324.375)
+scale = Vector2(3.66602, 3.45781)
 texture = ExtResource("2_awy67")
 
 [node name="gobutton" type="Button" parent="."]
