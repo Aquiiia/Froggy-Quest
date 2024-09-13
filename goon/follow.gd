@@ -12,5 +12,7 @@ func exit():
 func transition():
 	var distance = owner.direction.length()
 	
-	if distance < 30:
+	if distance < 110:
 		get_parent().change_state("Bite")
+	elif distance < 300:
+		get_parent().change_state("Spit")

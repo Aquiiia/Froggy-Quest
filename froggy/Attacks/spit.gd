@@ -19,6 +19,10 @@ func _on_spit_body_entered(body: Node) -> void:
 	if body.is_in_group("enemies"):
 		body.take_damage(damage)
 		queue_free()
+	elif body.is_in_group("boss"):
+		body.take_damage(damage)
+		queue_free()
+
 
 func is_out_of_bounds() -> bool:
 	var viewport_rect = get_viewport_rect()

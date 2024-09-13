@@ -18414,10 +18414,11 @@ shape = SubResource("RectangleShape2D_6hvvs")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders"]
 polygon = PackedVector2Array(955, 648, 956, 612, 923, 588, 924, 482, 904, 461, 905, 417, 889, 391, 890, 283, 906, 255, 909, 206, 923, 181, 924, 7, 938, -23, 1032, 534, 972, 664)
 
-[node name="QueenFly" parent="." instance=ExtResource("6_qxmgp")]
+[node name="QueenFly" parent="." groups=["boss"] instance=ExtResource("6_qxmgp")]
 position = Vector2(768, 312)
+collision_mask = 1
 
-[node name="Froggy" parent="." instance=ExtResource("6_3lyxl")]
+[node name="Froggy" parent="." groups=["player"] instance=ExtResource("6_3lyxl")]
 position = Vector2(96, 336)
 
 [node name="HUD" parent="." instance=ExtResource("6_u1vpj")]
