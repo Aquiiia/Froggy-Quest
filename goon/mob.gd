@@ -12,17 +12,18 @@ var jungle_fly = load("res://img/djungle_fly.png")
 var froggy_chase = false
 var froggy = null
 
+
 func _ready():
-func _physics_process(_delta):
 	var scene = get_tree().current_scene
 	#print(scene.name)
 	if scene.name == "Main":
 		$Sprite2D.texture = jungle_fly
 		health = Global.jungle_flies["health"]#ändra detta
 		speed = 155
-	
+		
 func _physics_process(_delta):
-	
+		
+#func _physics_process(_delta):
 	
 	if froggy_chase:
 		position += (froggy.position - position) / speed
