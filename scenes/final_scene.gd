@@ -28,8 +28,6 @@ func _ready():
 	player.xp = Global.player_data["xp"] #hämtar datan för alla frogs
 	player.position = $StartPos.position
 	
-	print(Global.player_abilities["tongue_cooldown"])
-	
 	var healthbar = get_node("health_bar")
 	var health_progress = healthbar.get_child(0)
 	health_progress.value = Global.player_data["health"]

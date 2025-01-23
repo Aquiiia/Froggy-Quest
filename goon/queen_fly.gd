@@ -12,15 +12,15 @@ var health = 100:
 	set(value):
 		health = value
 		progress_bar.value = value
+		
 		if value <= 0:
 			progress_bar.visible = false
 			find_child("StateMachine").change_state("Death")
 
 func _ready():
-	set_physics_process(false) 
+	set_physics_process(false)
 
 func _process(_delta):
-	
 	direction = player.position - position
 	
 	if direction.x < 0:
@@ -28,11 +28,9 @@ func _process(_delta):
 	else:
 		sprite.flip_h = true
 
-
 func _physics_process(delta):
-	if player:
-		velocity = direction.normalized() * 40
-		move_and_collide(velocity * delta)
+	velocity = direction.normalized() * 40
+	move_and_collide(velocity * delta)
 
 func take_damage(amount: int):
 	health -= amount

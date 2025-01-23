@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://dft8wekitw4aw"]
+[gd_scene load_steps=17 format=3 uid="uid://dft8wekitw4aw"]
 
 [ext_resource type="Script" path="res://goon/queen_fly.gd" id="1_eyewq"]
 [ext_resource type="Texture2D" uid="uid://bxpqiqwagokus" path="res://img/queen_fly_turned.png" id="1_wf2gd"]
-[ext_resource type="Texture2D" uid="uid://6t34w8r433gr" path="res://img/spit.png" id="2_is28g"]
 [ext_resource type="Script" path="res://goon/enemy_ai/state_machine.gd" id="3_bbvds"]
 [ext_resource type="Script" path="res://goon/idle.gd" id="4_2gkka"]
 [ext_resource type="Texture2D" uid="uid://cis0rkyfq3dti" path="res://goon/progress_bar_pic.png" id="4_cgpjx"]
@@ -40,12 +39,6 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_356wp")
 
 [node name="AcidSpit" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="AcidSpit"]
-position = Vector2(-88, 16)
-scale = Vector2(3.4375, 2.84375)
-texture = ExtResource("2_is28g")
-flip_h = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
