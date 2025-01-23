@@ -16,3 +16,7 @@ func transition():
 
 func _on_player_dection_body_entered(_body):
 	player_enterd = true
+
+
+func _on_queen_fly_boss_dmged() -> void:
+	player_enterd = true

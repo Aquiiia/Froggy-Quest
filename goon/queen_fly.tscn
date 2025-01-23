@@ -149,4 +149,5 @@ acid_spit_node = ExtResource("10_b1lyh")
 [node name="Death" type="Node2D" parent="StateMachine"]
 script = ExtResource("11_606dd")
 
+[connection signal="boss_dmged" from="." to="StateMachine/Idle" method="_on_queen_fly_boss_dmged"]
 [connection signal="body_entered" from="PlayerDection" to="StateMachine/Idle" method="_on_player_dection_body_entered"]

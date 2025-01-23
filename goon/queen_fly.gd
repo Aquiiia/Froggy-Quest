@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal boss_dmged
+
 @onready var player = get_parent().find_child("Froggy")
 @onready var sprite = $Sprite2D
 @onready var progress_bar = $UI/ProgressBar
@@ -34,3 +36,4 @@ func _physics_process(delta):
 
 func take_damage(amount: int):
 	health -= amount
+	boss_dmged.emit()
