@@ -155,7 +155,7 @@ action = "pause"
 script = ExtResource("12_h1fex")
 
 [node name="tonguebtn" type="TouchScreenButton" parent="CL"]
-position = Vector2(1064, 502)
+position = Vector2(1064, 261)
 scale = Vector2(4, 4)
 texture_normal = ExtResource("12_etcgp")
 action = "tongue_attack"
@@ -172,7 +172,7 @@ tint_progress = Color(0.0352941, 0.0352941, 0.0352941, 0.580392)
 [node name="Timer" type="Timer" parent="CL/tonguebtn"]
 
 [node name="spitjoy" type="Area2D" parent="CL"]
-position = Vector2(-123, -21)
+position = Vector2(-21, -21)
 script = ExtResource("15_l42tp")
 
 [node name="Joy" type="Sprite2D" parent="CL/spitjoy"]

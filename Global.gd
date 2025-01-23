@@ -1,14 +1,14 @@
 extends Node
 
-var is_mobile: bool = true
+var is_mobile: bool = false
 
 func _ready():
 	print("hello")
-	#var platform_name = OS.get_name()
-	#if platform_name == "Android" or platform_name == "iOS":
-		#is_mobile = true
-	#else:
-		#is_mobile = false
+	var platform_name = OS.get_name()
+	if platform_name == "Android" or platform_name == "iOS":
+		is_mobile = true
+	else:
+		is_mobile = false
 
 var direction: Vector2 = Vector2(1, 1)
 var holding_shoot: bool = false
