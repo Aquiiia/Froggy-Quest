@@ -32,10 +32,12 @@ var spitstick
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	
-	#velocity = input_direction * speed
+	#
 	
-	if joystick:
+	if joystick && Global.is_mobile:
 		velocity = speed*joystick.get_velo()
+	else:
+		velocity = input_direction * speed
 
 	if velocity.x > 0:
 		sprite.flip_h = true
