@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bidywpss5pvv1"]
+[gd_scene load_steps=5 format=3 uid="uid://bidywpss5pvv1"]
 
 [ext_resource type="PackedScene" uid="uid://g8crlq2xj4ob" path="res://Labyrint/Labyrinth.tscn" id="1_0qf17"]
 [ext_resource type="PackedScene" uid="uid://bfietwybqbijq" path="res://SceneTrigger/scene_trigger.tscn" id="2_2fs4q"]
+[ext_resource type="PackedScene" uid="uid://bkudxqac61kr1" path="res://hud/hud.tscn" id="3_p5lhv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bw3ie"]
 size = Vector2(20, 72)
@@ -17,3 +18,5 @@ connected_scene = "final_scene"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_bw3ie")
+
+[node name="HUD" parent="." instance=ExtResource("3_p5lhv")]

@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://goon/bite.gd" id="7_6t6rv"]
 [ext_resource type="Script" path="res://goon/charge.gd" id="8_mt32b"]
 [ext_resource type="Script" path="res://goon/spit.gd" id="9_nfa28"]
-[ext_resource type="PackedScene" path="res://goon/acid_spit.tscn" id="10_b1lyh"]
+[ext_resource type="PackedScene" uid="uid://cjo0cpux8kuuk" path="res://goon/acid_spit.tscn" id="10_b1lyh"]
 [ext_resource type="Script" path="res://goon/death.gd" id="11_606dd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_356wp"]
@@ -50,6 +50,7 @@ flip_h = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="TextureProgressBar" parent="UI"]
+visible = false
 offset_left = 373.0
 offset_top = 587.0
 offset_right = 776.0

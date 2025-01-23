@@ -26,19 +26,37 @@ var is_tongue_attacking = false
 
 var active_tongue: Node2D = null 
 
+var joystick
+var spitstick
+
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
 	
+	#velocity = input_direction * speed
+	
+	if joystick:
+		velocity = speed*joystick.get_velo()
+
 	if velocity.x > 0:
 		sprite.flip_h = true
 	elif velocity.x < 0:
 		sprite.flip_h = false
+		
+
+func _ready()-> void:
+	# Hitta 'HUD' i root-scenen
+	var current_scene = get_tree().current_scene
+	if current_scene:
+		print("Scene found")
+		var hud = current_scene.get_node("HUD")
+		if hud:
+			joystick = hud.get_node("CL/Joystick")
+			spitstick = hud.get_node("CL/spitjoy")
+		
 
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
-	
 	
 	#print(xp)
 	# Update the timer (spit)
@@ -55,6 +73,11 @@ func _physics_process(delta):
 		Spit()
 		print("pressed attack")
 		
+	if Global.holding_shoot:
+		Spit()
+		print("pressed attack")
+	
+		
 	if Input.is_action_just_pressed("tongue_attack"):
 		tongue_attack()
 
@@ -68,7 +91,12 @@ func Spit():
 		print("spit2")
 		var mouse_position = get_global_mouse_position()
 		
-		var direction = (mouse_position - position).normalized()
+		var direction = Vector2(0, 0)
+		
+		if Global.is_mobile:
+			direction = spitstick.shot_direction()
+		else:
+			direction = (mouse_position - position).normalized()
 		
 		if Spit != null:
 			print("spit3")
@@ -79,6 +107,7 @@ func Spit():
 			print("Spit Position: ", spit_position)
 			var spit_instance = spit.instantiate()
 			spit_instance.position = position + mouth_offset
+			
 			spit_instance.velocity = direction * spit_speed
 
 			get_parent().add_child(spit_instance)

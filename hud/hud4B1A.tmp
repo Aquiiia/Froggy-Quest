@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkudxqac61kr1"]
+[gd_scene load_steps=19 format=3 uid="uid://bkudxqac61kr1"]
 
 [ext_resource type="Script" path="res://hud/hud.gd" id="1_6b2kp"]
 [ext_resource type="Texture2D" uid="uid://dyu2uyf53i4qo" path="res://img/Game_over.png" id="2_62818"]
@@ -8,15 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://cm48x6ipu2kan" path="res://hud/settings_btn.png" id="4_o3f3n"]
 [ext_resource type="Texture2D" uid="uid://pqq6sf2hb5j3" path="res://hud/leaveGame_btn.png" id="5_f8a3g"]
 [ext_resource type="Script" path="res://hud/joystick.gd" id="8_ao4fk"]
-[ext_resource type="Texture2D" uid="uid://fmjat6uejwj3" path="res://pointer.png" id="10_b7844"]
+[ext_resource type="Texture2D" uid="uid://dy2l4crer0jss" path="res://goon/invisiblecircle.png" id="9_wnhro"]
+[ext_resource type="Texture2D" uid="uid://bxrvnvwleeg1y" path="res://goon/circle.png" id="10_6rm1c"]
 [ext_resource type="Texture2D" uid="uid://b2q8rv60c5w0u" path="res://hud/spit.png" id="11_3wosj"]
-[ext_resource type="Texture2D" uid="uid://b4pi6ees7qvjj" path="res://pause.png" id="11_f040a"]
 [ext_resource type="Texture2D" uid="uid://dup8s6ymcgw1b" path="res://square.png" id="12_dkrek"]
 [ext_resource type="Texture2D" uid="uid://dpip0uye7lux6" path="res://tongue.png" id="12_etcgp"]
-[ext_resource type="Script" path="res://hud/pausebtn.gd" id="12_h1fex"]
 [ext_resource type="Script" path="res://hud/tonguebtn.gd" id="14_71pfv"]
-[ext_resource type="Script" path="res://hud/spitjoy.gd" id="15_l42tp"]
-[ext_resource type="Texture2D" uid="uid://p7ep6w5ta5lo" path="res://circle.png" id="18_dgsfm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttvsq"]
 texture = ExtResource("2_62818")
@@ -27,11 +24,8 @@ texture = ExtResource("3_1rxg1")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yaj7u"]
 texture = ExtResource("3_eoxyi")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_s2r32"]
-radius = 114.215
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_dnmbd"]
-radius = 115.004
+radius = 108.005
 
 [node name="HUD" type="Node"]
 script = ExtResource("1_6b2kp")
@@ -134,29 +128,38 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Joystick" type="Area2D" parent="CL"]
-position = Vector2(151, 497)
+position = Vector2(129, 517)
 script = ExtResource("8_ao4fk")
 
 [node name="Joy" type="Sprite2D" parent="CL/Joystick"]
-texture = ExtResource("18_dgsfm")
+texture = ExtResource("9_wnhro")
 
 [node name="Stick" type="Sprite2D" parent="CL/Joystick/Joy"]
 scale = Vector2(0.39, 0.374444)
-texture = ExtResource("10_b7844")
+texture = ExtResource("10_6rm1c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CL/Joystick"]
-shape = SubResource("CircleShape2D_s2r32")
+shape = SubResource("CircleShape2D_dnmbd")
 
-[node name="pausebtn" type="TouchScreenButton" parent="CL"]
-position = Vector2(1064, 0)
-scale = Vector2(4, 3.925)
-texture_normal = ExtResource("11_f040a")
-action = "pause"
-script = ExtResource("12_h1fex")
+[node name="spitbtn" type="TouchScreenButton" parent="CL"]
+position = Vector2(1014, 388)
+scale = Vector2(5.096, 5)
+texture_normal = ExtResource("11_3wosj")
+action = "spit"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CL/spitbtn"]
+offset_right = 22.0
+offset_bottom = 22.0
+step = 0.05
+fill_mode = 3
+texture_progress = ExtResource("12_dkrek")
+tint_progress = Color(0.0338533, 0.0338533, 0.0338533, 0.698039)
+
+[node name="Timer" type="Timer" parent="CL/spitbtn"]
 
 [node name="tonguebtn" type="TouchScreenButton" parent="CL"]
-position = Vector2(1064, 502)
-scale = Vector2(4, 4)
+position = Vector2(1014, 509)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("12_etcgp")
 action = "tongue_attack"
 script = ExtResource("14_71pfv")
@@ -171,32 +174,7 @@ tint_progress = Color(0.0352941, 0.0352941, 0.0352941, 0.580392)
 
 [node name="Timer" type="Timer" parent="CL/tonguebtn"]
 
-[node name="spitjoy" type="Area2D" parent="CL"]
-position = Vector2(-123, -21)
-script = ExtResource("15_l42tp")
-
-[node name="Joy" type="Sprite2D" parent="CL/spitjoy"]
-position = Vector2(1021, 517)
-texture = ExtResource("18_dgsfm")
-
-[node name="Stick" type="Sprite2D" parent="CL/spitjoy/Joy"]
-scale = Vector2(0.39, 0.374444)
-texture = ExtResource("10_b7844")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CL/spitjoy"]
-position = Vector2(1021, 517)
-shape = SubResource("CircleShape2D_dnmbd")
-
-[node name="Timer" type="Timer" parent="CL/spitjoy"]
-wait_time = 2.261
-
-[node name="Spit" type="Sprite2D" parent="CL"]
-position = Vector2(2487, 334)
-texture = ExtResource("11_3wosj")
-
 [connection signal="pressed" from="CL/PausePanel/ResumeButton" to="." method="toggle_pause"]
 [connection signal="pressed" from="CL/PausePanel/LeaveGameButton" to="." method="_on_leave_game_button_pressed"]
-[connection signal="pressed" from="CL/pausebtn" to="CL/pausebtn" method="_on_pressed"]
 [connection signal="pressed" from="CL/tonguebtn" to="CL/tonguebtn" method="_on_pressed"]
 [connection signal="timeout" from="CL/tonguebtn/Timer" to="CL/tonguebtn" method="_on_timer_timeout"]
-[connection signal="timeout" from="CL/spitjoy/Timer" to="CL/spitjoy" method="_on_timer_timeout"]

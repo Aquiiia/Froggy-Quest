@@ -31,7 +31,7 @@ texture = ExtResource("3_eoxyi")
 radius = 114.215
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dnmbd"]
-radius = 115.004
+radius = 144.014
 
 [node name="HUD" type="Node"]
 script = ExtResource("1_6b2kp")
@@ -172,7 +172,7 @@ tint_progress = Color(0.0352941, 0.0352941, 0.0352941, 0.580392)
 [node name="Timer" type="Timer" parent="CL/tonguebtn"]
 
 [node name="spitjoy" type="Area2D" parent="CL"]
-position = Vector2(-123, -21)
+position = Vector2(-124, -21)
 script = ExtResource("15_l42tp")
 
 [node name="Joy" type="Sprite2D" parent="CL/spitjoy"]
@@ -183,12 +183,28 @@ texture = ExtResource("18_dgsfm")
 scale = Vector2(0.39, 0.374444)
 texture = ExtResource("10_b7844")
 
+[node name="button" type="TouchScreenButton" parent="CL/spitjoy/Joy"]
+position = Vector2(167, -92)
+scale = Vector2(4, 4.04545)
+texture_normal = ExtResource("11_3wosj")
+action = "spit"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CL/spitjoy/Joy/button"]
+offset_left = 0.25
+offset_right = 22.25
+offset_bottom = 22.0
+step = 0.05
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("12_dkrek")
+tint_progress = Color(0.0352941, 0.0352941, 0.0352941, 0.368627)
+
+[node name="Timer" type="Timer" parent="CL/spitjoy/Joy/button"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CL/spitjoy"]
 position = Vector2(1021, 517)
 shape = SubResource("CircleShape2D_dnmbd")
-
-[node name="Timer" type="Timer" parent="CL/spitjoy"]
-wait_time = 2.261
 
 [node name="Spit" type="Sprite2D" parent="CL"]
 position = Vector2(2487, 334)
@@ -199,4 +215,5 @@ texture = ExtResource("11_3wosj")
 [connection signal="pressed" from="CL/pausebtn" to="CL/pausebtn" method="_on_pressed"]
 [connection signal="pressed" from="CL/tonguebtn" to="CL/tonguebtn" method="_on_pressed"]
 [connection signal="timeout" from="CL/tonguebtn/Timer" to="CL/tonguebtn" method="_on_timer_timeout"]
-[connection signal="timeout" from="CL/spitjoy/Timer" to="CL/spitjoy" method="_on_timer_timeout"]
+[connection signal="pressed" from="CL/spitjoy/Joy/button" to="CL/spitjoy" method="_on_button_pressed"]
+[connection signal="timeout" from="CL/spitjoy/Joy/button/Timer" to="CL/spitjoy" method="_on_timer_timeout"]

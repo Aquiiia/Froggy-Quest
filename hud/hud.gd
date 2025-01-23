@@ -32,3 +32,12 @@ func _restart_game() -> void:
 func _on_leave_game_button_pressed() -> void:
 	toggle_pause()
 	_restart_game()
+
+
+func _on_tonguebtn_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_stick_2_released() -> void:
+	
+	pass # Replace with function body.
